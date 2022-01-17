@@ -1,0 +1,18 @@
+{% extends "base.html.twig" %}
+{% block title %}Personajes{% endblock %}
+{% block body %}
+    <h1>Listado de personajes</h1>
+
+    {% if personaje %}
+
+        {% for personaje in personajes %}
+            
+            {{ include ("partials/datos_personaje.html.twig", {"personaje": personaje}) }}
+            
+        {% endfor %}
+        
+    {% else %}
+        <p>Personaje {{ personaje.codigo }} no encontrado</p>
+    {% endif %}
+    
+{% endblock %}
