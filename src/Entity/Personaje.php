@@ -78,7 +78,8 @@ class Personaje
     private $equipamiento;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\ManyToOne(targetEntity=Usuario::class, inversedBy="personajes")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $autor;
 
@@ -231,15 +232,16 @@ class Personaje
         return $this;
     }
 
-    public function getAutor(): ?string
+    public function getAutor(): ?Usuario
     {
         return $this->autor;
     }
 
-    public function setAutor(string $autor): self
+    public function setAutor(?Usuario $autor): self
     {
         $this->autor = $autor;
 
         return $this;
     }
+
 }

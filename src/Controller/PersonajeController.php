@@ -30,33 +30,6 @@ class PersonajeController extends AbstractController
     ];     
 
     /**
-     * @Route("/personaje/{codigo}", name="ficha_personaje")
-     */
-    public function ficha($codigo): Response {
-        $resultado = ($this->personajes[$codigo] ?? null);
-
-        return $this->render("ficha_personaje.html.twig",[
-            "personaje" => $resultado
-        ]);
-        
-    }
-
-    /**
-     * @Route("/personaje/buscar/{texto}", name="ficha_personaje")
-     */
-    public function buscar($texto): Response {
-        $resultados = array_filter($this->personajes,
-            function ($personaje) use ($texto){
-                return strpos($personaje["nombre"], $texto) !== false;
-            }
-        );
-
-        return $this->render("ficha_personaje.html.twig",[
-            "personaje" => $resultados
-        ]);
-    }
-
-    /**
      * @Route("/personaje/insertar", name="insertar_personaje")
      */
     public function insertar(ManagerRegistry $doctrine) {
@@ -75,7 +48,6 @@ class PersonajeController extends AbstractController
             $personaje->setCarisma($pj["carisma"]);
             $personaje->setDescripcion($pj["descripcion"]);
             $personaje->setEquipamiento($pj["equipamiento"]);
-            $personaje->setAutor($pj["autor"]);
             $entityManager->persist($personaje);
         }
         
@@ -87,6 +59,20 @@ class PersonajeController extends AbstractController
         }
     }
 
+    /**
+     * @Route("/personaje/buscar/{texto}", name="ficha_personaje")
+     */
+    public function buscar($texto): Response {
+        $resultados = array_filter($this->personajes,
+            function ($personaje) use ($texto){
+                return strpos($personaje["nombre"], $texto) !== false;
+            }
+        );
+
+        return $this->render("ficha_personaje.html.twig",[
+            "personaje" => $resultados
+        ]);
+    }
 
     /**
      * @Route("/personaje/{codigo<\d+>?1}", name="ficha_predeterminada_personaje")
