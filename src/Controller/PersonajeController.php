@@ -75,6 +75,18 @@ class PersonajeController extends AbstractController
     }
 
     /**
+     * @Route("/personaje/ficha/{codigo<\d+>?1}", name="personaje_ficha")
+     */
+    public function ficha($codigo): Response {
+    
+        $resultado = ($this->personajes[$codigo] ?? null);
+      
+        return $this->render("personaje/index.html.twig", [
+        "personaje" => $resultado, "codigo" => $codigo
+        ]);
+    }
+
+    /**
      * @Route("/personaje/{codigo<\d+>?1}", name="ficha_predeterminada_personaje")
      */
     public function fichaPredeterminada($codigo): Response {
