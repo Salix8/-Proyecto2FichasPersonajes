@@ -1,0 +1,7 @@
+<div></div>
+
+Añadir a la entidad Personaje fotos, dinero, armadura
+
+Falta hacer dinamico Stats, Tiradas de salvación, sentidos, 
+
+

@@ -1,18 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="Autor" content="Saúl Pacheco Trilles" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="Description" content="Fichas de personajes" />
+        <meta name="keywords" content="">
 
         <title>{% block title %}Welcome!{% endblock %}</title>
 
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+
+        <!-- Bootstrap core css -->
+        <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+        <!-- Bootstrap core css -->
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+        <!-- Magnific-popup css -->
+        <link rel="stylesheet" type="text/css" href="/css/magnific-popup.css">
+        <!-- Font Awesome icons -->
+  	    <link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css">
+
+        <!-- Jquery -->
+        <script type="text/javascript" src="/js/jquery-3.6.0.js"></script>
+        <!-- Bootstrap core Javascript -->
+        <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+        <!-- Vendor CSS Files -->
+        <link href="assetsGp/vendor/aos/aos.css" rel="stylesheet">
+        <link href="assetsGp/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="assetsGp/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+        <link href="assetsGp/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+        <link href="assetsGp/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+        <link href="assetsGp/vendor/remixicon/remixicon.css" rel="stylesheet">
+        <link href="assetsGp/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+        <!-- Template Main CSS File -->
+        <link href="assetsGp/css/style.css" rel="stylesheet">
         
         {% block stylesheets %}
             <link href="{{ asset('css/estilos.css') }}" rel="stylesheet" />
+
+
+            <!-- Favicons -->
+            <link href="assetsGp/img/favicon.png" rel="icon">
+            <link href="assetsGp/img/apple-touch-icon.png" rel="apple-touch-icon">
         {% endblock %}
 
         {% block javascripts %}
@@ -21,5 +56,17 @@
     </head>
     <body>
         {% block body %}{% endblock %}
+
+        <!-- Vendor JS Files -->
+        <script src="assetsGp/vendor/purecounter/purecounter.js"></script>
+        <script src="assetsGp/vendor/aos/aos.js"></script>
+        <script src="assetsGp/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="assetsGp/vendor/glightbox/js/glightbox.min.js"></script>
+        <script src="assetsGp/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+        <script src="assetsGp/vendor/swiper/swiper-bundle.min.js"></script>
+        <script src="assetsGp/vendor/php-email-form/validate.js"></script>
+
+        <!-- Template Main JS File -->
+        <script src="assetsGp/js/main.js"></script>
     </body>
 </html>

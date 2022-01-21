@@ -1,0 +1,191 @@
+{% extends "base.html.twig" %}
+{% block title %}Personaje{% endblock %}
+{% block body %}
+    {{ include('partials/inicio-doc.part.html.twig') }}
+
+    <div class="wrapper container">
+
+        <div class="row"> <!--align-items-center-->
+            <div class="col">
+
+                 <nav class="navbar navbar-inverse">
+                    <div class="container-fluid">
+                        <ul class="nav">
+                            <li class="active"><a href="#">Home</a></li>
+                            <li><a href="#">Page 1</a></li>
+                            <li><a href="#">Page 2</a></li>
+                        </ul>
+                        <ul class="nav navbar-right">
+                            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                        </ul>
+                    </div>
+                </nav> 
+
+            </div>
+        </div>
+
+
+        <div class="row bg-dark text-white">
+            {{ include('partials/test_datos_pj.html.twig') }}
+        </div>
+
+        <br><br>
+
+        <div class="row gx-4 align-items-center">
+            {{ include('partials/stats_personaje.html.twig') }}
+        </div>
+
+        <div class="row gx-4 align-items-center">
+            <div class="col-3 text-center">
+                <div>
+                    <div class="p-1 border-2 border-primary rounded-2 bg-info text-dark bg-opacity-75">
+                        <div class="row row-cols-2">
+                            <div>STR {{ personaje.fuerza }}</div>
+                            <div>DEX {{ personaje.destreza }}</div>
+                            <div>CON {{ personaje.constitucion }}</div>
+                            <div>INT {{ personaje.inteligencia }}</div>
+                            <div>WIS {{ personaje.sabiduria }}</div>
+                            <div>CHA {{ personaje.carisma }}</div>
+                        </div>
+                        <div>Tiradas de salvación</div>
+                    </div>
+                    <br>
+                    <div class="p-1 border-2 border-primary rounded-2 bg-info text-dark bg-opacity-75">
+                        <div class="row row-cols-1">
+                            <div>14 percepción (WIS pasiva)</div>
+                            <div>19 investigación (INT pasiva)</div>
+                            <div>10 Averiguar intenciones (CHA pasiva)</div>
+                        </div>
+                        <div>Vision en la oscuridad 120 pies</div>
+                        <div>Sentidos</div>
+                    </div>
+                    <br>
+                    <div class="p-1 border-2 border-primary rounded-2 bg-info text-dark bg-opacity-75 text-start">
+                        <div>
+                            <div>Armadura</div>
+                            <div>Ninguna</div>
+                        </div>
+                        <hr>
+                        <div>
+                            <div>Armas</div>
+                            <div>Espada corta, daga, bastón</div>
+                        </div>
+                        <hr>
+                        <div>
+                            <div>Herramientas</div>
+                            <div>Dragoajedrez y las herramientas de ladrón</div>
+                        </div>
+                        <hr>
+                        <div>
+                            <div>Idiomas</div>
+                            <div>Common, Elfico</div>
+                        </div>
+                        <br>
+                        <div>Idiomas y competencias</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 text-center">
+                <div class="p-1 border-2 border-primary rounded-2 bg-info text-dark bg-opacity-75">
+                    {% include "partials/habilidades_personaje.html.twig" %}
+                </div>
+            </div>
+            <div class="col text-center">
+                <div class="p-1 border-2 border-primary rounded-2 bg-info text-dark bg-opacity-75">
+                    <div>CON</div>
+                    <div><button>{{ personaje.constitucion }}</button></div>
+                    <div>{{ personaje.constitucion }}</div>
+                </div>
+            </div>
+        </div>
+    
+        <br><br>
+
+
+        <div class="row">
+            <div class="col">
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Implementaciones - Accordion Item #3
+                        </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <strong>Implementaciones</strong> En el personaje imagenes dinero
+                        </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Tema de Login - Accordion Item #1
+                        </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <strong>Login</strong> Lo que se podria hacer es que una vez te logges la pagina te llevará a la pantalla de tus personajes, en caso de no tener ninguno te aparecera una pantalla en la que te pondrá que no tienes ninguno que si quieres crearte uno lo que te mandará directamente al creador de personajes.
+                        </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Tema inicio - Accordion Item #2
+                        </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <strong>Inicio</strong> Hay que hacer algo atractivo con imagenes de por medio y una presentacion sobre que es lo que hace la pagina web aunque realmente aqui ns que habrá pero seria royo portfolio un imagen grande algo de texto pequeño y esto tres veces luego ya seria un footer y si eso ya de cara a un futuro seria añadir mas pestañas y si eso se podria hacer algún tipo de blog pero como menciono anteriormente esto seria muy a futuro y no entraria como parte del proyecto
+                        </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Shiroe - Accordion Item #3
+                        </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <strong>Panel de control</strong> La idea es que los jugadores tengan acceso a un apartado reducido de el status de cada miembro de su party con cosas como pueden ser la vida o cuantos consumibles les quedan a cada uno ya sean conjuros o cosas asi exactamente
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+        <!--Boton toast para los dados-->
+
+        <button type="button" class="btn btn-primary" id="liveToastBtn">Show live toast</button>
+
+        <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+            <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                    <img src="..." class="rounded me-2" alt="...">
+                    <strong class="me-auto">Bootstrap</strong>
+                    <small>11 mins ago</small>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body">
+                    Hello, world! This is a toast message.
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    {{ include('partials/fin-doc.part.html.twig') }}
+{% endblock %}

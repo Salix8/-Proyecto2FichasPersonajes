@@ -29,6 +29,46 @@ class PersonajeController extends AbstractController
               "descripcion" => "Le encanta cantar y mas si es con una buena copa", "equipamiento" => "Nada", "autor" => "Admin"],
     ];     
 
+    private function definirModificador(int $caracteristica): int{
+        $modificador = 0;
+        switch ($caracteristica){
+            case 1: $modificador = -5;
+            break;
+            case 2: 
+            case 3: $modificador = -4;
+            break;
+            case 4:
+            case 5: $modificador = -3;
+            break;
+            case 6:
+            case 7: $modificador = -2;
+            break;
+            case 8:
+            case 9: $modificador = -1;
+            break;
+            case 10:
+            case 11: $modificador = +0;
+            break;
+            case 12:
+            case 13: $modificador = +1;
+            break;
+            case 14:
+            case 15: $modificador = +2;
+            break;
+            case 16:
+            case 17: $modificador = +3;
+            break;
+            case 18:
+            case 19: $modificador = +4;
+            break;
+            case 20:
+            case 21: $modificador = +5;
+            break;
+            default: $modificador = null;
+        }
+        return $modificador;
+    }
+
     /**
      * @Route("/personaje/insertar", name="insertar_personaje")
      */
@@ -80,8 +120,8 @@ class PersonajeController extends AbstractController
     public function ficha($codigo): Response {
     
         $resultado = ($this->personajes[$codigo] ?? null);
-      
-        return $this->render("personaje/index.html.twig", [
+        
+        return $this->render("personaje/personaje.html.twig", [
         "personaje" => $resultado, "codigo" => $codigo
         ]);
     }
