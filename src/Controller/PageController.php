@@ -11,8 +11,7 @@ class PageController extends AbstractController
     /**
      * @Route("/page", name="page")
      */
-    public function index(): Response
-    {
+    public function index(): Response{
         return $this->render('page/index.html.twig', [
             'controller_name' => 'PageController',
         ]);
@@ -21,8 +20,7 @@ class PageController extends AbstractController
     /**
      * @Route("/", name="inicio")
      */
-    public function inicio(): Response
-    {
+    public function inicio(): Response{
         return $this->render("index.html.twig");
     }
 }

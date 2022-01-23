@@ -100,7 +100,22 @@ class PersonajeController extends AbstractController
     }
 
     /**
-     * @Route("/personaje/buscar/{texto}", name="ficha_personaje")
+     * @Route("/personaje/lista", name="lista_personaje")
+     */
+    public function lista($texto): Response {
+        $resultados = array_filter($this->personajes,
+            function ($personaje) use ($texto){
+                return strpos($personaje["nombre"], $texto) !== false;
+            }
+        );
+
+        return $this->render("lista_personajes.html.twig",[
+            "personaje" => $resultados
+        ]);
+    }
+
+    /**
+     * @Route("/personaje/buscar/{texto}", name="buscar_personaje")
      */
     public function buscar($texto): Response {
         $resultados = array_filter($this->personajes,
@@ -109,13 +124,13 @@ class PersonajeController extends AbstractController
             }
         );
 
-        return $this->render("ficha_personaje.html.twig",[
+        return $this->render("lista_personajes.html.twig",[
             "personaje" => $resultados
         ]);
     }
 
     /**
-     * @Route("/personaje/ficha/{codigo<\d+>?1}", name="personaje_ficha")
+     * @Route("/personaje/ficha/{codigo<\d+>?1}", name="ficha_personaje")
      */
     public function ficha($codigo): Response {
     

@@ -3,6 +3,7 @@
 {% block body %}
     {{ include('partials/inicio-doc.part.html.twig') }}
 
+
     <div class="wrapper container">
 
         <div class="row"> <!--align-items-center-->
@@ -27,13 +28,13 @@
 
 
         <div class="row bg-dark text-white">
-            {{ include('partials/test_datos_pj.html.twig') }}
+            {{ include('partials/datos-inicio-personaje.part.html.twig') }}
         </div>
 
         <br><br>
 
         <div class="row gx-4 align-items-center">
-            {{ include('partials/stats_personaje.html.twig') }}
+            {{ include('partials/stats-personaje.part.html.twig') }}
         </div>
 
         <div class="row gx-4 align-items-center">
@@ -88,7 +89,7 @@
             </div>
             <div class="col-3 text-center">
                 <div class="p-1 border-2 border-primary rounded-2 bg-info text-dark bg-opacity-75">
-                    {% include "partials/habilidades_personaje.html.twig" %}
+                    {% include "partials/habilidades-personaje.part.html.twig" %}
                 </div>
             </div>
             <div class="col text-center">
