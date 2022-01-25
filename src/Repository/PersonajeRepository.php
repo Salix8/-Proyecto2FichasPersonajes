@@ -19,6 +19,25 @@ class PersonajeRepository extends ServiceEntityRepository
         parent::__construct($registry, Personaje::class);
     }
 
+
+    public function findByName($text): array{
+        $qb = $this->createQueryBuilder("c")
+        ->andWhere("c.nombre LIKE :text")
+        ->setParameter("text", "%" . $text . "%")
+        ->getQuery();
+        return $qb->execute();
+    }
+    
+    /*
+    public function findByName2($text): array {
+        $entityManager = $this->getEntityManager();
+        $query = $entityManager->createQuery(
+            'SELECT c FROM App\Entity\Contacto c WHERE c.nombre LIKE :text'
+        )->setParameter('text', '%' . $text . '%');
+        return $query->execute();        
+    }
+    */
+
     // /**
     //  * @return Personaje[] Returns an array of Personaje objects
     //  */

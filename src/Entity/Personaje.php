@@ -79,7 +79,6 @@ class Personaje
 
     /**
      * @ORM\ManyToOne(targetEntity=Usuario::class, inversedBy="personajes")
-     * @ORM\JoinColumn(nullable=false)
      */
     private $autor;
 

@@ -1,33 +1,26 @@
 {% extends "base.html.twig" %}
 {% block title %}Personaje{% endblock %}
+{% block stylesheets %}
+    <link href="{{ asset('/assetsGp/css/estilosFichaPersonaje.css') }}" rel="stylesheet" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+
+    <!-- Favicons -->
+    <link href="/assetsGp/img/ico/casco.ico" rel="icon">
+    <link href="/assetsGp/img/ico/casco.ico" rel="apple-touch-icon">
+{% endblock %}
+{% block javascripts %}
+    <script src="/assetsGp/js/jsFichaPersonaje.js"></script>
+{% endblock %}
 {% block body %}
-    {{ include('partials/inicio-doc.part.html.twig') }}
+    {{ include('/partials/inicio-doc.part.html.twig') }}
 
 
-    <div class="wrapper container">
-
-        <div class="row"> <!--align-items-center-->
-            <div class="col">
-
-                 <nav class="navbar navbar-inverse">
-                    <div class="container-fluid">
-                        <ul class="nav">
-                            <li class="active"><a href="#">Home</a></li>
-                            <li><a href="#">Page 1</a></li>
-                            <li><a href="#">Page 2</a></li>
-                        </ul>
-                        <ul class="nav navbar-right">
-                            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                        </ul>
-                    </div>
-                </nav> 
-
-            </div>
-        </div>
+    <div class="wrapper container" id="contenedorFichaPersonaje">
 
 
-        <div class="row bg-dark text-white">
+        <div class="row bg-dark text-white" id="datosInicioPersonaje">
             {{ include('partials/datos-inicio-personaje.part.html.twig') }}
         </div>
 
@@ -37,26 +30,52 @@
             {{ include('partials/stats-personaje.part.html.twig') }}
         </div>
 
+        <br>
+
         <div class="row gx-4 align-items-center">
             <div class="col-3 text-center">
                 <div>
                     <div class="p-1 border-2 border-primary rounded-2 bg-info text-dark bg-opacity-75">
+                    <div>Tiradas de salvación</div>
                         <div class="row row-cols-2">
-                            <div>STR {{ personaje.fuerza }}</div>
-                            <div>DEX {{ personaje.destreza }}</div>
-                            <div>CON {{ personaje.constitucion }}</div>
-                            <div>INT {{ personaje.inteligencia }}</div>
-                            <div>WIS {{ personaje.sabiduria }}</div>
-                            <div>CHA {{ personaje.carisma }}</div>
+                            <div>
+                                <input class="form-check-input" type="radio" name="salvacionFuerza" value="salvacionFuerza">
+                                <label class="form-check-label" for="exampleRadios3">STR</label>
+                                <button class="d20" value="{{ modFuerza }}">{{ modFuerza }}</button>
+                            </div>
+                            <div>
+                                <input class="form-check-input" type="radio" name="salvacionDestreza" value="salvacionDestreza">
+                                <label class="form-check-label" for="exampleRadios3">DEX</label>
+                                <button class="d20" value="{{ modDestreza }}">{{ modDestreza }}</button>
+                            </div>
+                            <div>
+                                <input class="form-check-input" type="radio" name="salvacionConstitucion" value="salvacionConstitucion">
+                                <label class="form-check-label" for="exampleRadios3">CON</label>
+                                <button class="d20" value="{{ modConstitucion }}">{{ modConstitucion }}</button>
+                            </div>
+                            <div>
+                                <input class="form-check-input" type="radio" name="salvacionInteligencia" value="salvacionInteligencia">
+                                <label class="form-check-label" for="exampleRadios3">INT</label>
+                                <button class="d20" value="{{ modInteligencia }}">{{ modInteligencia }}</button>
+                            </div>
+                            <div>
+                                <input class="form-check-input" type="radio" name="salvacionSabiduria" value="salvacionSabiduria">
+                                <label class="form-check-label" for="exampleRadios3">WIS</label>
+                                <button class="d20" value="{{ modSabiduria }}">{{ modSabiduria }}</button>
+                            </div>
+                            <div>
+                                <input class="form-check-input" type="radio" name="salvacionCarisma" value="salvacionCarisma">
+                                <label class="form-check-label" for="exampleRadios3">WIS</label>
+                                <button class="d20" value="{{ modCarisma }}">{{ modCarisma }}</button>
+                            </div>
                         </div>
-                        <div>Tiradas de salvación</div>
                     </div>
                     <br>
                     <div class="p-1 border-2 border-primary rounded-2 bg-info text-dark bg-opacity-75">
                         <div class="row row-cols-1">
-                            <div>14 percepción (WIS pasiva)</div>
-                            <div>19 investigación (INT pasiva)</div>
-                            <div>10 Averiguar intenciones (CHA pasiva)</div>
+                            <div>{{ 10 + modSabiduria }} percepción (WIS pasiva)</div>
+                            <div>{{ 10 + modInteligencia }} investigación (INT pasiva)</div>
+                            <div>{{ 10 + modSabiduria }} perspicacia (WIS pasiva)</div>
                         </div>
                         <div>Vision en la oscuridad 120 pies</div>
                         <div>Sentidos</div>
@@ -93,9 +112,9 @@
                 </div>
             </div>
             <div class="col text-center">
-                <div class="p-1 border-2 border-primary rounded-2 bg-info text-dark bg-opacity-75">
+                <div class="p-1 border-2 border-primary rounded-2 bg-info text-dark" id="acciones">
                     <div>CON</div>
-                    <div><button>{{ personaje.constitucion }}</button></div>
+                    <div><button class="d20" value="{{ modConstitucion }}">{{ personaje.constitucion }}</button></div>
                     <div>{{ personaje.constitucion }}</div>
                 </div>
             </div>
@@ -188,5 +207,5 @@
 
     </div>
 
-    {{ include('partials/fin-doc.part.html.twig') }}
+    {{ include('/partials/fin-doc.part.html.twig') }}
 {% endblock %}

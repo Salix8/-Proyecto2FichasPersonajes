@@ -1,148 +1,148 @@
 
 <div>
-    <div class="row row-cols-3">
-        <div class="disabled">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" disabled>
+    <div>Habilidades</div>
+    <div class="row row-cols-3 text-start interlineadoHabilidades">
+        <div>
+            <input class="form-check-input" type="radio" name="acrobacias" id="exampleRadios3" value="option3">
             <label class="form-check-label" for="exampleRadios3">Dex</label>
         </div>
         <div>Acrobacias</div>
-        <div><button>{{ personaje.destreza }}</button></div>
+        <div><button class="d20" value="{{ modDestreza }}">{{ modDestreza }}</button></div>
     </div>
-    <div class="row row-cols-3">
-        <div class="disabled">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" disabled>
+    <div class="row row-cols-3 text-start interlineadoHabilidades">
+        <div>
+            <input class="form-check-input" type="radio" name="manejo de animales" id="exampleRadios3" value="option3">
             <label class="form-check-label" for="exampleRadios3">Wis</label>
         </div>
         <div>Manejo de animales</div>
-        <div><button>{{ personaje.sabiduria }}</button></div>
+        <div><button class="d20" value="{{ modSabiduria }}">{{ modSabiduria }}</button></div>
     </div>
-    <div class="row row-cols-3">
-        <div class="disabled">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" cheked disabled>
+    <div class="row row-cols-3 text-start interlineadoHabilidades">
+        <div>
+            <input class="form-check-input" type="radio" name="arcana" id="exampleRadios3" value="option3">
             <label class="form-check-label" for="exampleRadios3">Int</label>
         </div>
         <div>Arcana</div>
-        <div><button>{{ personaje.inteligencia }}</button></div>
+        <div><button class="d20" value="{{ modInteligencia }}">{{ modInteligencia }}</button></div>
     </div>
-    <div class="row row-cols-3">
-        <div class="disabled">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" disabled>
+    <div class="row row-cols-3 text-start interlineadoHabilidades">
+        <div>
+            <input class="form-check-input" type="radio" name="atleticas" id="exampleRadios3" value="option3">
             <label class="form-check-label" for="exampleRadios3">Str</label>
         </div>
         <div>Atleticas</div>
-        <div><button>{{ personaje.fuerza }}</button></div>
+        <div><button class="d20" value="{{ modFuerza }}">{{ modFuerza }}</button></div>
     </div>
-    <div class="row row-cols-3">
-        <div class="disabled">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" disabled>
+    <div class="row row-cols-3 text-start interlineadoHabilidades">
+        <div>
+            <input class="form-check-input" type="radio" name="engaño" id="exampleRadios3" value="option3">
             <label class="form-check-label" for="exampleRadios3">Cha</label>
         </div>
         <div>Engaño</div>
-        <div><button>{{ personaje.carisma }}</button></div>
+        <div><button class="d20" value="{{ modCarisma }}">{{ modCarisma }}</button></div>
     </div>
-    <div class="row row-cols-3">
-        <div class="disabled">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" disabled>
+    <div class="row row-cols-3 text-start interlineadoHabilidades">
+        <div>
+            <input class="form-check-input" type="radio" name="historia" id="exampleRadios3" value="option3">
             <label class="form-check-label" for="exampleRadios3">Int</label>
         </div>
         <div>Historia</div>
-        <div><button>{{ personaje.inteligencia }}</button></div>
+        <div><button class="d20" value="{{ modInteligencia }}">{{ modInteligencia }}</button></div>
     </div>
-    <div class="row row-cols-3">
-        <div class="disabled">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" disabled>
+    <div class="row row-cols-3 text-start interlineadoHabilidades">
+        <div>
+            <input class="form-check-input" type="radio" name="perspicacia" id="exampleRadios3" value="option3">
             <label class="form-check-label" for="exampleRadios3">Wis</label>
         </div>
-        <div>Averiguar intenciones</div>
-        <div><button>{{ personaje.sabiduria }}</button></div>
+        <div>Perspicacia</div>
+        <div><button class="d20" value="{{ modSabiduria }}">{{ modSabiduria }}</button></div>
     </div>
-    <div class="row row-cols-3">
-        <div class="disabled">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" disabled>
+    <div class="row row-cols-3 text-start interlineadoHabilidades">
+        <div>
+            <input class="form-check-input" type="radio" name="intimidacion" id="exampleRadios3" value="option3">
             <label class="form-check-label" for="exampleRadios3">Cha</label>
         </div>
         <div>Intimidación</div>
-        <div><button>{{ personaje.carisma }}</button></div>
+        <div><button class="d20" value="{{ modCarisma }}">{{ modCarisma }}</button></div>
     </div>
-    <div class="row row-cols-3">
-        <div class="disabled">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" disabled>
+    <div class="row row-cols-3 text-start interlineadoHabilidades">
+        <div>
+            <input class="form-check-input" type="radio" name="investigacion" id="exampleRadios3" value="option3">
             <label class="form-check-label" for="exampleRadios3">Int</label>
         </div>
         <div>Investigación</div>
-        <div><button>{{ personaje.inteligencia }}</button></div>
+        <div><button class="d20" value="{{ modInteligencia }}">{{ modInteligencia }}</button></div>
     </div>
-    <div class="row row-cols-3">
-        <div class="disabled">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" disabled>
+    <div class="row row-cols-3 text-start interlineadoHabilidades">
+        <div>
+            <input class="form-check-input" type="radio" name="medicina" id="exampleRadios3" value="option3">
             <label class="form-check-label" for="exampleRadios3">Wis</label>
         </div>
         <div>Medicina</div>
-        <div><button>{{ personaje.sabiduria }}</button></div>
+        <div><button class="d20" value="{{ modSabiduria }}">{{ modSabiduria }}</button></div>
     </div>
-    <div class="row row-cols-3">
-        <div class="disabled">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" disabled>
+    <div class="row row-cols-3 text-start interlineadoHabilidades">
+        <div>
+            <input class="form-check-input" type="radio" name="naturaleza" id="exampleRadios3" value="option3">
             <label class="form-check-label" for="exampleRadios3">Int</label>
         </div>
         <div>Naturaleza</div>
-        <div><button>{{ personaje.inteligencia }}</button></div>
+        <div><button class="d20" value="{{ modInteligencia }}">{{ modInteligencia }}</button></div>
     </div>
-    <div class="row row-cols-3">
-        <div class="disabled">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" disabled>
+    <div class="row row-cols-3 text-start interlineadoHabilidades">
+        <div>
+            <input class="form-check-input" type="radio" name="percepcion" id="exampleRadios3" value="option3">
             <label class="form-check-label" for="exampleRadios3">Wis</label>
         </div>
         <div>Percepcion</div>
-        <div><button>{{ personaje.sabiduria }}</button></div>
+        <div><button class="d20" value="{{ modSabiduria }}">{{ modSabiduria }}</button></div>
     </div>
-    <div class="row row-cols-3">
-        <div class="disabled">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" disabled>
+    <div class="row row-cols-3 text-start interlineadoHabilidades">
+        <div>
+            <input class="form-check-input" type="radio" name="actuaccion" id="exampleRadios3" value="option3">
             <label class="form-check-label" for="exampleRadios3">Cha</label>
         </div>
         <div>Actuación</div>
-        <div><button>{{ personaje.carisma }}</button></div>
+        <div><button class="d20" value="{{ modCarisma }}">{{ modCarisma }}</button></div>
     </div>
-    <div class="row row-cols-3">
-        <div class="disabled">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" disabled>
+    <div class="row row-cols-3 text-start interlineadoHabilidades">
+        <div>
+            <input class="form-check-input" type="radio" name="persuasion" id="exampleRadios3" value="option3">
             <label class="form-check-label" for="exampleRadios3">Cha</label>
         </div>
         <div>Persuasión</div>
-        <div><button>{{ personaje.carisma }}</button></div>
+        <div><button class="d20" value="{{ modCarisma }}">{{ modCarisma }}</button></div>
     </div>
-    <div class="row row-cols-3">
-        <div class="disabled">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" disabled>
+    <div class="row row-cols-3 text-start interlineadoHabilidades">
+        <div>
+            <input class="form-check-input" type="radio" name="religion" id="exampleRadios3" value="option3">
             <label class="form-check-label" for="exampleRadios3">Int</label>
         </div>
         <div>Religión</div>
-        <div><button>{{ personaje.inteligencia }}</button></div>
+        <div><button class="d20" value="{{ modInteligencia }}">{{ modInteligencia }}</button></div>
     </div>
-    <div class="row row-cols-3">
-        <div class="disabled">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" disabled>
+    <div class="row row-cols-3 text-start interlineadoHabilidades">
+        <div>
+            <input class="form-check-input" type="radio" name="juego de manos" id="exampleRadios3" value="option3">
             <label class="form-check-label" for="exampleRadios3">Dex</label>
         </div>
         <div>Juego de manos</div>
-        <div><button>{{ personaje.destreza }}</button></div>
+        <div><button class="d20" value="{{ modDestreza }}">{{ modDestreza }}</button></div>
     </div>
-    <div class="row row-cols-3">
-        <div class="disabled">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" disabled>
+    <div class="row row-cols-3 text-start interlineadoHabilidades">
+        <div>
+            <input class="form-check-input" type="radio" name="sigilo" id="exampleRadios3" value="option3">
             <label class="form-check-label" for="exampleRadios3">Dex</label>
         </div>
         <div>Sigilo</div>
-        <div><button>{{ personaje.destreza }}</button></div>
+        <div><button class="d20" value="{{ modDestreza }}">{{ modDestreza }}</button></div>
     </div>
-    <div class="row row-cols-3">
-        <div class="disabled">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" disabled>
+    <div class="row row-cols-3 text-start interlineadoHabilidades">
+        <div>
+            <input class="form-check-input" type="radio" name="supervivencia" id="exampleRadios3" value="option3">
             <label class="form-check-label" for="exampleRadios3">Wis</label>
         </div>
         <div>Supervivencia</div>
-        <div><button>{{ personaje.sabiduria }}</button></div>
+        <div><button class="d20" value="{{ modSabiduria }}">{{ modSabiduria }}</button></div>
     </div>
-    <div>Habilidades</div>
 </div>

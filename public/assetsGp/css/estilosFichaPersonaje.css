@@ -1,0 +1,31 @@
+
+body{
+    background-image: url(../../assetsGp/img/pykeCriaturaBajoAgua-bg.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+button{
+    border: 1px solid #aaaa;
+}
+
+.interlineadoHabilidades div:nth-child(even){
+    padding: 4px;
+}
+
+#inNumSumaryVida, #inNumTempVida{
+    width: 110px;
+}
+
+#contenedorFichaPersonaje{
+    font-family: 'Merriweather', serif;
+}
+
+#datosInicioPersonaje{
+    margin-top: 80px;
+}
+
+#acciones{
+    max-height: 700px;
+    min-height: 680px;
+}

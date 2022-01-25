@@ -1,10 +1,15 @@
 <div></div>
 
 Crear nueva entidad para que se pueden añadir los bloques de acciones y habilidades
-Esta tendra Titulo, Contenido y un selector para ver si es Acción, Acción adicional, Reacción u otra cosa
+Esta tendra Titulo, Contenido y un selector para ver si es Acción, Acción adicional, Reacción u otra cosa, añadir un un select para poner con que habilidad eres competente y otro para las tiradas de salvación
 
 Añadir a la entidad Personaje fotos, dinero, armadura
 
-Falta hacer dinamico Stats, Tiradas de salvación, sentidos, 
+Falta hacer dinamico Tiradas de salvación, sentidos, 
+
+
+Preguntar por lo de definir vida
+Preguntar por lo del dado porque no se añade el .val()
+
 
 
