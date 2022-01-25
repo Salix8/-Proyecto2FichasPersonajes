@@ -6,7 +6,37 @@ body{
 }
 
 button{
-    border: 1px solid #aaaa;
+    border: 1px solid #cccc;
+}
+
+.stat__box{
+    background-color: #fff;
+    text-align: center;
+    border: 1px solid #ebebeb;
+    border-radius: 5px;
+    padding: 10px 10px;
+    transition: all ease-in-out 0.3s;
+    box-shadow: 0px 0 25px 0 rgba(0, 0, 0, 0.1);
+    transform: translateY(-10px);
+}
+
+.stat{
+    margin: 0 auto;
+    width: 40px;
+    height: 30px;
+    background-color: #ffc451;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.stat:hover{
+    background-color: #f8b836;
+    width: 42px;
+    height: 32px;
+    border-radius: 3px;
 }
 
 .interlineadoHabilidades div:nth-child(even){

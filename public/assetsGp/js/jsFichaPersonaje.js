@@ -1,21 +1,23 @@
 /*$(document).ready(()=>{
 
-    $(`.d20`).click(function(){
-        let mod = this.val();
-        console.log(mod);
-        console.log(d20()+mod);
+    let classd20 = $(`.d20`);
+    let i;
+    
+    $(`.d20`).on(`click`, function(){
+        let tirada = d20();
+        let mod = $(`.d20`).val();
+        console.log(`${tirada} + ${mod} = ` + (tirada + parseInt(mod)));
     });
-
 });*/
 
 window.addEventListener(`load`, ()=>{
     let classd20 = document.getElementsByClassName(`d20`);
     let i;
 
-    for (i = 0; i < classd20.length; i++) {
+    for (i = 0; i < classd20.length; i++) { 
         classd20[i].addEventListener(`click`, function() {
             let tirada = d20();
-            console.log(`${tirada} + ${this.value} = ` + (tirada + parseInt(this.value)));
+            console.log(`${tirada} + ${this.textContent()} = ` + (tirada + parseInt(classd20[i])));
         });
     }
 });

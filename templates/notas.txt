@@ -11,5 +11,7 @@ Falta hacer dinamico Tiradas de salvación, sentidos,
 Preguntar por lo de definir vida
 Preguntar por lo del dado porque no se añade el .val()
 
+Se pueden pillar los check
 
+Mirar los stats antes se subian y bajaban ahora no mirar las clases index
 

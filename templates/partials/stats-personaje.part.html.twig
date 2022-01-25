@@ -1,98 +1,83 @@
 
 
+<!-- ======= Services Section ======= -->
+<div id="services" class="services">
+    <div class="container" data-aos="fade-up">
 
-<div class="col-1 text-center">
-    <div class="p-1 border-2 border-primary rounded-2 bg-info text-dark bg-opacity-75">
-        <div>STR</div>
-        <div><button class="d20" value="{{ modFuerza }}">{{ modFuerza }}</button></div>
-        <div>{{ personaje.fuerza }}</div>
-    </div>
-</div>
-<div class="col-1 text-center">
-    <div class="p-1 border-2 border-primary rounded-2 bg-info text-dark bg-opacity-75">
-        <div>DEX</div>
-        <div><button class="d20" value="{{ modDestreza }}">{{ modDestreza }}</button></div>
-        <div>{{ personaje.destreza }}</div>
-    </div>
-</div>
-<div class="col-1 text-center">
-    <div class="p-1 border-2 border-primary rounded-2 bg-info text-dark bg-opacity-75">
-        <div>CON</div>
-        <div><button class="d20" value="{{ modConstitucion }}">{{ modConstitucion }}</button></div>
-        <div>{{ personaje.constitucion }}</div>
-    </div>
-</div>
-<div class="col-1 text-center">
-    <div class="p-1 border-2 border-primary rounded-2 bg-info text-dark bg-opacity-75">
-        <div>INT</div>
-        <div><button class="d20" value="{{ modInteligencia }}">{{ modInteligencia }}</button></div>
-        <div>{{ personaje.inteligencia }}</div>
-    </div>
-</div>
-<div class="col-1 text-center">
-    <div class="p-1 border-2 border-primary rounded-2 bg-info text-dark bg-opacity-75">
-        <div>WIS</div>
-        <div><button class="d20" value="{{ modSabiduria }}">{{ modSabiduria }}</button></div>
-        <div>{{ personaje.sabiduria }}</div>
-    </div>
-</div>
-<div class="col-1 text-center">
-    <div class="p-1 border-2 border-primary rounded-2 bg-info text-dark bg-opacity-75">
-        <div>CHA</div>
-        <div><button class="d20" value="{{ modCarisma }}">{{ modCarisma }}</button></div>
-        <div>{{ personaje.carisma }}</div>
-    </div>
-</div>
-<div class="col-1 text-center">
-    <div class="p-1 border-2 border-primary rounded-2 bg-info text-dark bg-opacity-75">
-        <div>Bono</div>
-        <div><button class="d20" value="{{ modCompetencia }}">{{ modCompetencia }}</button></div>
-        <div>comp</div>
-    </div>
-</div>
-<div class="col-1 text-center">
-    <div class="p-1 border-2 border-primary rounded-2 bg-info text-dark bg-opacity-75">
-        <div>caminar</div>
-        <div>30</div>
-        <div>velocidad</div>
-    </div>
-</div>
-<div class="col-4 text-center">
-    <div class="p-1 border-2 border-primary rounded-2 bg-info text-dark bg-opacity-75">
-        <div class="row row-cols-3">
-            <div class="col">
-                <div>
-                    <button role="button">Heal</button>
-                </div>
-                <div>
-                    <input type="number" id="inNumSumaryVida" min="0" max="999999999" value=""></input>
-                </div>
-                <div>
-                    <button role="button">Damage</button>
-                </div>
+        <div class="row">
+          <div class="col-lg-1 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="100">
+            <div class="stat__box">
+              <h4>STR</h4>
+              <div class="stat d20">{{ modFuerza }}</div>
+              <p>{{ personaje.fuerza }}</p>
             </div>
-            <div class="col">
-                <div class="row row-cols-3">
-                    <div class="col">
-                        <div>Actuales</div>
-                        <div>82</div>
-                        <!--Comentario en un futuro habra que cambiaro por personaje.vidaActual-->
-                    </div>
-                    <div class="col">
-                        <div>.</div>
-                        <div>/</div>
-                    </div>
-                    <div class="col">
-                        <div>Max</div>
-                        <div>82</div>
-                    </div>
-                </div>
-                <div>Puntos de vida</div>
+          </div>
+
+          <div class="col-lg-1 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="200">
+            <div class="stat__box">
+              <h4>DEX</h4>
+              <div class="stat">{{ modDestreza }}</div>
+              <p>{{ personaje.destreza }}</p>
             </div>
-            <div class="col">
-                <div>Temp</div>
-                <div><input type="number" id="inNumTempVida" value=""></input></div>
+          </div>
+
+          <div class="col-lg-1 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="300">
+            <div class="stat__box">
+              <h4>CON</h4>
+              <div class="stat">{{ modConstitucion }}</div>
+              <p>{{ personaje.constitucion }}</p>
             </div>
+          </div>
+
+          <div class="col-lg-1 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="100">
+            <div class="stat__box">
+              <h4>INT</h4>
+              <div class="stat">{{ modInteligencia }}</div>
+              <p>{{ personaje.inteligencia }}</p>
+            </div>
+          </div>
+
+          <div class="col-lg-1 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="200">
+            <div class="stat__box">
+              <h4>WIS</h4>
+              <div class="stat">{{ modSabiduria }}</div>
+              <p>{{ personaje.sabiduria }}</p>
+            </div>
+          </div>
+
+          <div class="col-lg-1 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="300">
+            <div class="stat__box">
+              <h4>CHA</h4>
+              <div class="stat">{{ modCarisma }}</div>
+              <p>{{ personaje.carisma }}</p>
+            </div>
+          </div>
+
+          <div class="col-lg-1 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="300">
+            <div class="stat__box">
+              <h4>Bono</h4>
+              <div class="stat">{{ modCompetencia }}</div>
+              <p>comp</p>
+            </div>
+          </div>
+
+          <div class="col-lg-1 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="300">
+            <div class="stat__box">
+              <h4>Speed</h4>
+              <div>30</div>
+              <p>wolk</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="300">
+            <div class="stat__box">
+              <h4>STR</h4>
+              <div class="stat">{{ modFuerza }}</div>
+              <p>{{ personaje.fuerza }}</p>
+            </div>
+          </div>
+
         </div>
+
     </div>
-</div>
+
