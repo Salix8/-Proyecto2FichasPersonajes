@@ -102,7 +102,7 @@ class PersonajeController extends AbstractController
         return $modificador;
     }
 
-    private function definirHitPoints(int $clase){
+    private function definirHitPoints(string $clase){
         $dado = 0;
         switch ($clase){
             case "Barbaro": $dado = 12;
@@ -161,15 +161,12 @@ class PersonajeController extends AbstractController
     /**
      * @Route("/personaje/lista", name="lista_personaje")
      */
-    public function lista($texto): Response {
-        $resultados = array_filter($this->personajes,
-            function ($personaje) use ($texto){
-                return strpos($personaje["nombre"], $texto) !== false;
-            }
-        );
+    public function lista(ManagerRegistry $doctrine): Response {
+        $repositorio = $doctrine->getRepository(Personaje::class);
+        $personajes = $repositorio->findAll();
 
         return $this->render("lista_personajes.html.twig",[
-            "personaje" => $resultados
+            'personajes' => $personajes
         ]);
     }
 
@@ -181,7 +178,7 @@ class PersonajeController extends AbstractController
         $personajes = $repositorio->findByName($texto);
 
         return $this->render("lista_personajes.html.twig",[
-            'personajes' => $personajes
+            'personajes' => $personajes, 'texto' => $texto
         ]);
     }
 
@@ -201,14 +198,14 @@ class PersonajeController extends AbstractController
         $modCarisma = $this->definirModificador($personaje['carisma']);
 
         $modCompetencia = $this->definirBonoCompetencia($personaje['nivel']);
-        //$hitPoints = $this->definirHitPoints($personaje['clase']);
+        $hitPoints = $this->definirHitPoints($personaje['clase']);
 
         return $this->render("personaje/personaje.html.twig", [
         "personaje" => $personaje, "codigo" => $codigo, 
         "modFuerza" => $modFuerza, "modDestreza" => $modDestreza,
         "modConstitucion" => $modConstitucion, "modInteligencia" => $modInteligencia,
         "modSabiduria" => $modSabiduria, "modCarisma" => $modCarisma,
-        "modCompetencia" => $modCompetencia//, "hitPoints" => $hitPoints
+        "modCompetencia" => $modCompetencia, "hitPoints" => $hitPoints
         ]);
     }
 
@@ -263,12 +260,12 @@ class PersonajeController extends AbstractController
     /**
      * @Route("/personaje/{codigo<\d+>?1}", name="ficha_predeterminada_personaje")
      */
-    public function fichaPredeterminada($codigo): Response {
+    public function fichaPredeterminada(ManagerRegistry $doctrine, $codigo): Response {
+        $repositorio = $doctrine->getRepository(Personaje::class);
+        $personaje = $repositorio->find($codigo);
     
-      $resultado = ($this->personajes[$codigo] ?? null);
-    
-      return $this->render("ficha_personaje.html.twig", [
-      "personaje" => $resultado, "codigo" => $codigo
-      ]);
+        return $this->render("ficha_personaje.html.twig", [
+            "personaje" => $personaje, "codigo" => $codigo
+        ]);
     }
 }

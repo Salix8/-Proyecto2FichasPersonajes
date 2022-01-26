@@ -23,4 +23,11 @@ class PageController extends AbstractController
     public function inicio(): Response{
         return $this->render("index.html.twig");
     }
+
+    /**
+     * @Route("/galeria", name="galeria")
+     */
+    public function galeria(): Response{
+        return $this->render("galeria.html.twig");
+    }
 }

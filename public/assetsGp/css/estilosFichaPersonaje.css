@@ -20,24 +20,40 @@ button{
     transform: translateY(-10px);
 }
 
-.stat{
-    margin: 0 auto;
-    width: 40px;
-    height: 30px;
+    .stat{
+        margin: 0 auto;
+        width: 40px;
+        height: 30px;
+        background-color: #ffc451;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.3s;
+    }
+
+    .stat:hover{
+        background-color: #f8b836;
+        width: 42px;
+        height: 32px;
+        border-radius: 3px;
+    }
+
+/* The dots/bullets/indicators */
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
     background-color: #ffc451;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.3s;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
 }
 
-.stat:hover{
-    background-color: #f8b836;
-    width: 42px;
-    height: 32px;
-    border-radius: 3px;
-}
+    .active__dot, .dot:hover {
+        background-color: #f8b836; /*Este color no funciona bien*/
+    }
 
 .interlineadoHabilidades div:nth-child(even){
     padding: 4px;
