@@ -3,14 +3,14 @@ $(document).ready(()=>{
     let classd20 = $(`.d20`);
     let i;
 
-    classd20.each(function( i ) {
-        console.log(i);
-        let classd20 = $(`.d20`);
-        classd20.on(`click`, function() {
+    for (i = 0; i < classd20.length; i++) { 
+        $(`.d20`).on(`click`, function() {
             let tirada = d20();
             console.log(`${tirada} + ${this.innerHTML} = ` + (tirada + parseInt(this.innerHTML)));
         });
-    });
+        break;
+    }
+
 });
 
 /*window.addEventListener(`load`, ()=>{
@@ -34,9 +34,3 @@ function d20() {
     return Math.floor((Math.random() * (20 - 1 + 1)) + 1);
 }
 
-
-$( function() {
-    $( "#accordion" ).accordion({
-      collapsible: true
-    });
-});

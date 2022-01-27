@@ -12,3 +12,6 @@ Se pueden pillar los check
 
 Mirar los stats antes se subian y bajaban ahora no mirar las clases index
 
+https://qastack.mx/programming/3479447/jquery-ui-accordion-that-keeps-multiple-sections-open
+
+https://api.jqueryui.com/accordion/
