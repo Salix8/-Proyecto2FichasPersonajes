@@ -1,7 +1,10 @@
-<ul>
-    <li><strong>{{ personaje.nombre }}</strong></li>
+
+  <h3><a href="#"><strong>{{ personaje.nombre }}</strong></a></h3>
+
+  <div>
+    <li><a href="/personaje/ficha/{{ personaje.id }}"><strong>{{ personaje.nombre }}</strong></a></li>
     <li><strong>Raza</strong>: {{ personaje.raza }}</li>
     <li><strong>Clase</strong>: {{ personaje.clase }}</li>
     <li><strong>Nivel</strong>: {{ personaje.nivel }}</li>
     <li><strong>Autor</strong>: {{ personaje.autor.nombre }}</li>
-</ul>
+  </div>
