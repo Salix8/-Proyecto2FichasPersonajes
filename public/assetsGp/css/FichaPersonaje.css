@@ -67,10 +67,6 @@ button{
     font-family: 'Merriweather', serif;
 }
 
-#datosInicioPersonaje{
-    margin-top: 80px;
-}
-
 #acciones{
     max-height: 700px;
     min-height: 680px;

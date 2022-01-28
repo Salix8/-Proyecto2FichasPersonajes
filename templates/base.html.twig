@@ -9,7 +9,7 @@
 
         <title>{% block title %}Welcome!{% endblock %}</title>
 
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        {# <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>"> #}
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
 
         <!-- Bootstrap core css -->
@@ -21,9 +21,14 @@
         <!-- Font Awesome icons -->
   	    <link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css">
 
+        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+
         <!-- Jquery -->
-{#         <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
-        <link rel="stylesheet" href="/resources/demos/style.css"> #}
+        {#
+            <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+            <link rel="stylesheet" href="/resources/demos/style.css"> 
+        #}
         
         <script src="/js/jquery-3.6.0.js"></script>
         <script src="/js/jquery-ui-1.13.1.custom/jquery-ui.js"></script>
@@ -59,7 +64,9 @@
         {% endblock %}
     </head>
     <body>
+        {{ include('/partials/inicio-doc.part.html.twig') }}
         {% block body %}{% endblock %}
+        {{ include('/partials/fin-doc.part.html.twig') }}
 
         <!-- Vendor JS Files -->
         <script src="/assetsGp/vendor/purecounter/purecounter.js"></script>

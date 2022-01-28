@@ -30,4 +30,11 @@ class PageController extends AbstractController
     public function galeria(): Response{
         return $this->render("galeria.html.twig");
     }
+
+    /**
+     * @Route("/contacto", name="contacto")
+     */
+    public function contacto(): Response{
+        return $this->render("contacto.html.twig");
+    }
 }

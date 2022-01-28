@@ -1,10 +1,7 @@
 {% extends "base.html.twig" %}
 {% block title %}Personaje{% endblock %}
 {% block stylesheets %}
-    <link href="{{ asset('/assetsGp/css/estilosFichaPersonaje.css') }}" rel="stylesheet" />
-
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+    <link href="{{ asset('/assetsGp/css/FichaPersonaje.css') }}" rel="stylesheet" />
 
     <!-- Favicons -->
     <link href="/assetsGp/img/ico/casco.ico" rel="icon">
@@ -14,13 +11,11 @@
     <script src="/assetsGp/js/jsFichaPersonaje.js"></script>
 {% endblock %}
 {% block body %}
-    {{ include('/partials/inicio-doc.part.html.twig') }}
+
+    <div id="after-header" class="wrapper container" id="contenedorFichaPersonaje">
 
 
-    <div class="wrapper container" id="contenedorFichaPersonaje">
-
-
-        <div class="row bg-dark text-white" id="datosInicioPersonaje">
+        <div class="row bg-dark text-white">
             {{ include('partials/datos-inicio-personaje.part.html.twig') }}
         </div>
 
@@ -122,5 +117,4 @@
 
     </div>
 
-    {{ include('/partials/fin-doc.part.html.twig') }}
 {% endblock %}

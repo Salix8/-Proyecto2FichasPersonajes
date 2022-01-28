@@ -200,7 +200,7 @@ class PersonajeController extends AbstractController
         $modCompetencia = $this->definirBonoCompetencia($personaje['nivel']);
         $hitPoints = $this->definirHitPoints($personaje['clase']);
 
-        return $this->render("personaje/personaje.html.twig", [
+        return $this->render("personaje/ficha-personaje.html.twig", [
         "personaje" => $personaje, "codigo" => $codigo, 
         "modFuerza" => $modFuerza, "modDestreza" => $modDestreza,
         "modConstitucion" => $modConstitucion, "modInteligencia" => $modInteligencia,
@@ -221,14 +221,14 @@ class PersonajeController extends AbstractController
             $personaje->setNombre($nombre);
             try {
                 $entityManager->flush();
-                return $this->render("ficha_personaje.html.twig", [
+                return $this->render("ficha_personaje_Admin.html.twig", [
                     "personaje" => $personaje
                 ]);
             } catch (\Exception $e ) {
                 return new Response("Error al insertar los datos del personaje");
             }
         }else {
-            return $this->render("ficha_personaje.html.twig", [
+            return $this->render("ficha_personaje_Admin.html.twig", [
                 "personaje" => null
             ]);
         }
@@ -251,7 +251,7 @@ class PersonajeController extends AbstractController
                 return new Response("Error al eliminar el personaje");
             }
         }else {
-            return $this->render("ficha_personaje.html.twig", [
+            return $this->render("ficha_personaje_Admin.html.twig", [
                 "personaje" => null
             ]);
         }
@@ -264,7 +264,7 @@ class PersonajeController extends AbstractController
         $repositorio = $doctrine->getRepository(Personaje::class);
         $personaje = $repositorio->find($codigo);
     
-        return $this->render("ficha_personaje.html.twig", [
+        return $this->render("ficha_personaje_Admin.html.twig", [
             "personaje" => $personaje, "codigo" => $codigo
         ]);
     }

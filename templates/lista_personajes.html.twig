@@ -1,11 +1,19 @@
 {% extends "base.html.twig" %}
 {% block title %}Personajes{% endblock %}
+{% block stylesheets %}
+    <link href="{{ asset('/assetsGp/css/bgPyke.css') }}" rel="stylesheet" />
+
+    <!-- Favicons -->
+    <link href="/assetsGp/img/ico/mascara2.ico" rel="icon">
+    <link href="/assetsGp/img/ico/mascara2.ico" rel="apple-touch-icon">
+{% endblock %}
 {% block javascripts %}
     <script src="/assetsGp/js/accordion.js"></script>
 {% endblock %}
-{% block body %}
-    {{ include('/partials/inicio-doc.part.html.twig') }}
-    <h1>Listado de personajes</h1>
+{% block body %}   
+
+
+    <h1 id="after-header">Listado de personajes</h1>
 
 
     {% if personajes %}
@@ -21,6 +29,5 @@
     {% else %}
         <p>No se ha encontrado ningun personaje que contenga {{ texto }}</p>
     {% endif %}
-    
-    {{ include('/partials/fin-doc.part.html.twig') }}
+
 {% endblock %}

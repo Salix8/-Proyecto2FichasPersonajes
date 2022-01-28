@@ -1,22 +1,22 @@
 {% extends "base.html.twig" %}
-{% block title %}Personaje{% endblock %}
+{% block title %}Galería{% endblock %}
 {% block stylesheets %}
+  <link href="{{ asset('/assetsGp/css/bgPyke.css') }}" rel="stylesheet" />
 
-    <!-- Favicons -->
-    <link href="/assetsGp/img/ico/casco.ico" rel="icon">
-    <link href="/assetsGp/img/ico/casco.ico" rel="apple-touch-icon">
+  <!-- Favicons -->
+  <link href="/assetsGp/img/ico/fireMushroom.ico" rel="icon">
+  <link href="/assetsGp/img/ico/fireMushroom.ico" rel="apple-touch-icon">
 {% endblock %}
 
 {% block body %}
-    {{ include('/partials/inicio-doc.part.html.twig') }}
 
 <!-- ======= Portfolio Section ======= -->
-    <section class="portfolio">
+    <section id="after-header" class="portfolio">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Portfolio</h2>
-          <p>Check our Portfolio</p>
+          <h2>Galería</h2>
+          <p>Ilustraciones de usuarios</p>
         </div>
 
         <div class="row" data-aos="fade-up" data-aos-delay="100">
@@ -34,12 +34,12 @@
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
             <div class="portfolio-wrap">
-              <img src="/assetsGp/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
+              <img src="/assetsGp/img/dragonEvee.png" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>App 1</h4>
                 <p>App</p>
                 <div class="portfolio-links">
-                  <a href="/assetsGp/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
+                  <a href="/assetsGp/img/dragonEvee.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
                   <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
@@ -48,12 +48,12 @@
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-web">
             <div class="portfolio-wrap">
-              <img src="/assetsGp/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
+              <img src="/assetsGp/img/Monje.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>Web 3</h4>
                 <p>Web</p>
                 <div class="portfolio-links">
-                  <a href="/assetsGp/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
+                  <a href="/assetsGp/img/Monje.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
                   <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
@@ -62,12 +62,12 @@
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
             <div class="portfolio-wrap">
-              <img src="/assetsGp/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
+              <img src="/assetsGp/img/sirenaEvee.png" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>App 2</h4>
                 <p>App</p>
                 <div class="portfolio-links">
-                  <a href="/assetsGp/img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 2"><i class="bx bx-plus"></i></a>
+                  <a href="/assetsGp/img/sirenaEvee.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 2"><i class="bx bx-plus"></i></a>
                   <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
@@ -76,12 +76,12 @@
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-card">
             <div class="portfolio-wrap">
-              <img src="/assetsGp/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
+              <img src="/assetsGp/img/Vampiro-bg.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>Card 2</h4>
                 <p>Card</p>
                 <div class="portfolio-links">
-                  <a href="/assetsGp/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
+                  <a href="/assetsGp/img/Vampiro-bg.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
                   <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
@@ -90,12 +90,12 @@
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-web">
             <div class="portfolio-wrap">
-              <img src="/assetsGp/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
+              <img src="/assetsGp/img/esqueleta.png" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>Web 2</h4>
                 <p>Web</p>
                 <div class="portfolio-links">
-                  <a href="/assetsGp/img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 2"><i class="bx bx-plus"></i></a>
+                  <a href="/assetsGp/img/esqueleta.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 2"><i class="bx bx-plus"></i></a>
                   <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
@@ -104,12 +104,12 @@
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
             <div class="portfolio-wrap">
-              <img src="/assetsGp/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
+              <img src="/assetsGp/img/mujerVredeZorro.png" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>App 3</h4>
                 <p>App</p>
                 <div class="portfolio-links">
-                  <a href="/assetsGp/img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 3"><i class="bx bx-plus"></i></a>
+                  <a href="/assetsGp/img/mujerVredeZorro.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 3"><i class="bx bx-plus"></i></a>
                   <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
@@ -163,5 +163,4 @@
       </div>
     </section><!-- End Portfolio Section -->
 
-    {{ include('/partials/fin-doc.part.html.twig') }}
 {% endblock %}
