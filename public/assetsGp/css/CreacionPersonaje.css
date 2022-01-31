@@ -1,0 +1,24 @@
+.button{
+    background-color: #fff;
+    border: 1px solid #dbdbdb;
+    color: #363636;
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    padding: calc(0.375em - 1px) 0.75em;
+    text-align: center;
+    white-space: nowrap;
+    box-shadow: none;
+    height: 2.25em;
+    position: relative;
+    vertical-align: top;
+}
+
+.button.is-rounded{
+    border-radius: 290486px;
+    padding-left: 0 1em;
+}
+
+.button.is-medium{
+    font-size: 1.25rem;
+}
