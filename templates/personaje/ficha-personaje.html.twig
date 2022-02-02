@@ -30,43 +30,43 @@
         <div class="row gx-4 align-items-center">
             <div class="col-3 text-center">
                 <div>
-                    <div class="p-1 border-2 border-primary rounded-2 bg-info text-dark bg-opacity-75">
+                    <div class="stat__box">
                     <div>Tiradas de salvación</div>
                         <div class="row row-cols-2">
                             <div>
                                 <input class="form-check-input" type="radio" name="salvacionFuerza" value="salvacionFuerza">
                                 <label class="form-check-label" for="exampleRadios3">STR</label>
-                                <button class="d20" value="{{ modFuerza }}">{{ modFuerza }}</button>
+                                <div class="stat d20" value="{{ modFuerza }}">{{ modFuerza }}</div>
                             </div>
                             <div>
                                 <input class="form-check-input" type="radio" name="salvacionDestreza" value="salvacionDestreza">
                                 <label class="form-check-label" for="exampleRadios3">DEX</label>
-                                <button class="d20" value="{{ modDestreza }}">{{ modDestreza }}</button>
+                                <div class="stat d20" value="{{ modDestreza }}">{{ modDestreza }}</div>
                             </div>
                             <div>
                                 <input class="form-check-input" type="radio" name="salvacionConstitucion" value="salvacionConstitucion">
                                 <label class="form-check-label" for="exampleRadios3">CON</label>
-                                <button class="d20" value="{{ modConstitucion }}">{{ modConstitucion }}</button>
+                                <div class="stat d20" value="{{ modConstitucion }}">{{ modConstitucion }}</div>
                             </div>
                             <div>
                                 <input class="form-check-input" type="radio" name="salvacionInteligencia" value="salvacionInteligencia">
                                 <label class="form-check-label" for="exampleRadios3">INT</label>
-                                <button class="d20" value="{{ modInteligencia }}">{{ modInteligencia }}</button>
+                                <div class="stat d20" value="{{ modInteligencia }}">{{ modInteligencia }}</div>
                             </div>
                             <div>
                                 <input class="form-check-input" type="radio" name="salvacionSabiduria" value="salvacionSabiduria">
                                 <label class="form-check-label" for="exampleRadios3">WIS</label>
-                                <button class="d20" value="{{ modSabiduria }}">{{ modSabiduria }}</button>
+                                <div class="stat d20" value="{{ modSabiduria }}">{{ modSabiduria }}</div>
                             </div>
                             <div>
                                 <input class="form-check-input" type="radio" name="salvacionCarisma" value="salvacionCarisma">
                                 <label class="form-check-label" for="exampleRadios3">WIS</label>
-                                <button class="d20" value="{{ modCarisma }}">{{ modCarisma }}</button>
+                                <div class="stat d20" value="{{ modCarisma }}">{{ modCarisma }}</div>
                             </div>
                         </div>
                     </div>
                     <br>
-                    <div class="p-1 border-2 border-primary rounded-2 bg-info text-dark bg-opacity-75">
+                    <div class="stat__box">
                         <div class="row row-cols-1">
                             <div>{{ 10 + modSabiduria }} percepción (WIS pasiva)</div>
                             <div>{{ 10 + modInteligencia }} investigación (INT pasiva)</div>
@@ -76,7 +76,7 @@
                         <div>Sentidos</div>
                     </div>
                     <br>
-                    <div class="p-1 border-2 border-primary rounded-2 bg-info text-dark bg-opacity-75 text-start">
+                    <div class="stat__box text-start">
                         <div>
                             <div>Armadura</div>
                             <div>Ninguna</div>
@@ -102,12 +102,12 @@
                 </div>
             </div>
             <div class="col-3 text-center">
-                <div class="p-1 border-2 border-primary rounded-2 bg-info text-dark bg-opacity-75">
+                <div class="stat__box">
                     {% include "partials/habilidades-personaje.part.html.twig" %}
                 </div>
             </div>
             <div class="col text-center">
-                <div class="p-1 border-2 border-primary rounded-2 bg-info text-dark" id="acciones">
+                <div class="stat__box" id="acciones">
                     {% include "partials/acordeon.part.html.twig" %}
                 </div>
             </div>

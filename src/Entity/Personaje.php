@@ -3,6 +3,9 @@
 namespace App\Entity;
 
 use App\Repository\PersonajeRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,6 +13,9 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Personaje
 {
+
+    const clases = ['Artificiero', 'Bárbaro', 'Bardo', 'Clérigo', 'Druida', 'Monje', 'Místico', 'Paladín', 'Explorador', 'Pícaro', 'Hechicero', 'Brujo', 'Mago' ];
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -19,51 +25,92 @@ class Personaje
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     * (message="El nombre es obligatorio")
      */
     private $nombre;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     * (message="El raza es obligatorio")
      */
     private $raza;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\Choice(choices=Personaje::clases, message="Tienes que elegir uno de estos valores {{ choices }}")
      */
     private $clase;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank
+     * @Assert\Range(
+     *      min = 1,
+     *      max = 20,
+     *      notInRangeMessage = "El nivel no puede ser menor de {{ min }} ni myor de {{ max }}")
      */
     private $nivel;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank
+     * @Assert\Range(
+     *      min = 1,
+     *      max = 20,
+     *      notInRangeMessage = "La fuerza no puede ser menor de {{ min }} ni myor de {{ max }}")
      */
     private $fuerza;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank
+     * @Assert\Range(
+     *      min = 1,
+     *      max = 20,
+     *      notInRangeMessage = "La destreza no puede ser menor de {{ min }} ni myor de {{ max }}")
      */
     private $destreza;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank
+     * @Assert\Range(
+     *      min = 1,
+     *      max = 20,
+     *      notInRangeMessage = "La constitucion no puede ser menor de {{ min }} ni myor de {{ max }}")
      */
     private $constitucion;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank
+     * @Assert\Range(
+     *      min = 1,
+     *      max = 20,
+     *      notInRangeMessage = "La inteligencia no puede ser menor de {{ min }} ni myor de {{ max }}")
      */
     private $inteligencia;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank
+     * @Assert\Range(
+     *      min = 1,
+     *      max = 20,
+     *      notInRangeMessage = "La sabiduria no puede ser menor de {{ min }} ni myor de {{ max }}")
      */
     private $sabiduria;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank
+     * @Assert\Range(
+     *      min = 1,
+     *      max = 20,
+     *      notInRangeMessage = "El carisma no puede ser menor de {{ min }} ni myor de {{ max }}")
      */
     private $carisma;
 
@@ -82,6 +129,17 @@ class Personaje
      */
     private $autor;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Rasgo::class, mappedBy="rasgoPersonaje")
+     */
+    private $rasgos;
+
+    public function __construct()
+    {
+        $this->rasgos = new ArrayCollection();
+    }
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -92,7 +150,7 @@ class Personaje
         return $this->nombre;
     }
 
-    public function setNombre(string $nombre): self
+    public function setNombre(?string $nombre): self
     {
         $this->nombre = $nombre;
 
@@ -104,7 +162,7 @@ class Personaje
         return $this->raza;
     }
 
-    public function setRaza(string $raza): self
+    public function setRaza(?string $raza): self
     {
         $this->raza = $raza;
 
@@ -116,7 +174,7 @@ class Personaje
         return $this->clase;
     }
 
-    public function setClase(string $clase): self
+    public function setClase(?string $clase): self
     {
         $this->clase = $clase;
 
@@ -128,7 +186,7 @@ class Personaje
         return $this->nivel;
     }
 
-    public function setNivel(int $nivel): self
+    public function setNivel(?int $nivel): self
     {
         $this->nivel = $nivel;
 
@@ -140,7 +198,7 @@ class Personaje
         return $this->fuerza;
     }
 
-    public function setFuerza(int $fuerza): self
+    public function setFuerza(?int $fuerza): self
     {
         $this->fuerza = $fuerza;
 
@@ -152,7 +210,7 @@ class Personaje
         return $this->destreza;
     }
 
-    public function setDestreza(int $destreza): self
+    public function setDestreza(?int $destreza): self
     {
         $this->destreza = $destreza;
 
@@ -164,7 +222,7 @@ class Personaje
         return $this->constitucion;
     }
 
-    public function setConstitucion(int $constitucion): self
+    public function setConstitucion(?int $constitucion): self
     {
         $this->constitucion = $constitucion;
 
@@ -176,7 +234,7 @@ class Personaje
         return $this->inteligencia;
     }
 
-    public function setInteligencia(int $inteligencia): self
+    public function setInteligencia(?int $inteligencia): self
     {
         $this->inteligencia = $inteligencia;
 
@@ -188,7 +246,7 @@ class Personaje
         return $this->sabiduria;
     }
 
-    public function setSabiduria(int $sabiduria): self
+    public function setSabiduria(?int $sabiduria): self
     {
         $this->sabiduria = $sabiduria;
 
@@ -200,7 +258,7 @@ class Personaje
         return $this->carisma;
     }
 
-    public function setCarisma(int $carisma): self
+    public function setCarisma(?int $carisma): self
     {
         $this->carisma = $carisma;
 
@@ -212,7 +270,7 @@ class Personaje
         return $this->descripcion;
     }
 
-    public function setDescripcion(string $descripcion): self
+    public function setDescripcion(?string $descripcion): self
     {
         $this->descripcion = $descripcion;
 
@@ -224,7 +282,7 @@ class Personaje
         return $this->equipamiento;
     }
 
-    public function setEquipamiento(string $equipamiento): self
+    public function setEquipamiento(?string $equipamiento): self
     {
         $this->equipamiento = $equipamiento;
 
@@ -239,6 +297,36 @@ class Personaje
     public function setAutor(?Usuario $autor): self
     {
         $this->autor = $autor;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Rasgo[]
+     */
+    public function getRasgos(): Collection
+    {
+        return $this->rasgos;
+    }
+
+    public function addRasgo(Rasgo $rasgo): self
+    {
+        if (!$this->rasgos->contains($rasgo)) {
+            $this->rasgos[] = $rasgo;
+            $rasgo->setRasgoPersonaje($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRasgo(Rasgo $rasgo): self
+    {
+        if ($this->rasgos->removeElement($rasgo)) {
+            // set the owning side to null (unless already changed)
+            if ($rasgo->getRasgoPersonaje() === $this) {
+                $rasgo->setRasgoPersonaje(null);
+            }
+        }
 
         return $this;
     }

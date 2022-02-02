@@ -13,21 +13,36 @@
 {% block body %}   
 
 
-    <h1 id="after-header">Listado de personajes</h1>
+<!-- ======= Accordion Section ======= -->
+    <section class="about">
+      <div class="container" data-aos="fade-up">
 
-
-    {% if personajes %}
-
-        <div id="notaccordion">
-        {% for personaje in personajes %}
+        <div class="row" id="after-header">
+          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right" data-aos-delay="100">
+            <h1>Listado de personajes</h1>
             
-            {{ include ("partials/datos_personaje.html.twig", {"personaje": personaje}) }}
-            
-        {% endfor %}
+            {% if personajes %}
+
+                <div id="notaccordion">
+                {% for personaje in personajes %}
+                    
+                    {{ include ("partials/datos_personaje.html.twig", {"personaje": personaje}) }}
+                    
+                {% endfor %}
+                </div>
+
+            {% else %}
+                <p>No se ha encontrado ningun personaje que contenga {{ texto }}</p>
+            {% endif %}
+
+          </div>
+          <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+            <img src="/assetsGp/img/Monje.jpg" class="img-fluid" alt="">
+          </div>
         </div>
 
-    {% else %}
-        <p>No se ha encontrado ningun personaje que contenga {{ texto }}</p>
-    {% endif %}
+      </div>
+    </section><!-- End Accordion Section -->
+
 
 {% endblock %}

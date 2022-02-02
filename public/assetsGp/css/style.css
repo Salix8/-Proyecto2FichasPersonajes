@@ -143,7 +143,7 @@ h1, h2, h3, h4, h5, h6 {
   max-height: 40px;
 }
 #after-header{
-  margin-top: 70px;
+  margin-top: 90px;
 }
 
 /*--------------------------------------------------------------
@@ -207,6 +207,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .navbar a:hover, .navbar .active, .navbar .active:focus, .navbar li:hover > a {
   color: #ffc451;
+  cursor: pointer;
 }
 .navbar .dropdown ul {
   display: block;
@@ -866,7 +867,7 @@ section {
   color: #626262;
 }
 .counts .image {
-  background: url("../img/counts-img.jpg") center center no-repeat;
+  background: url("../img/nigromanteCarlos.png") center center no-repeat;
   background-size: cover;
   min-height: 400px;
 }

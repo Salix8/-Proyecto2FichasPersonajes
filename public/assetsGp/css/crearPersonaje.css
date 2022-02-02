@@ -1,0 +1,170 @@
+body{
+    color: #4a4a4a;
+    font-size: 1em;
+    font-weight: 400;
+    line-height: 1.5;
+    box-sizing: border-box;
+}
+
+.button{
+    background-color: #fff;
+    border: 1px solid #dbdbdb;
+    color: #363636;
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    padding: calc(0.375em - 1px) 0.75em;
+    text-align: center;
+    white-space: nowrap;
+    box-shadow: none;
+    height: 2.25em;
+    position: relative;
+    vertical-align: top;
+}
+
+    .button.is-rounded{
+        border-radius: 290486px;
+        padding-left: 0 1em;
+    }
+
+    .button.is-medium{
+        font-size: 1.25rem;
+    }
+
+
+
+
+.tile.is-vertical>.tile.is-child:not(:last-child){
+    margin-bottom: 1.5rem;
+}
+
+.tile.is-child{
+    margin: 0;
+}
+
+.traitsTile{
+    margin-left: 50%;
+    margin-left: 50%;
+}
+
+.tile{
+    align-items: stretch;
+    display: block;
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
+    min-height: min-content;
+}
+
+    .box{
+        background-color: #fff;
+        border-radius: 6px;
+        box-shadow: 1px 2px 8px #888888;
+        color: #4a4a4a;
+        display: block;
+        padding: 1.25rem;
+        border: 1px solid #dbdbdb;
+        margin-bottom: 1.5em;
+    }
+
+        .media{
+            align-items: flex-start;
+            display: flex;
+            text-align: left;
+        }
+
+            .media-content{
+                flex-basis: auto;
+                flex-grow: 1;
+                flex-shrink: 1;
+                text-align: left;
+            }
+
+                .subtitle{
+                    color: #4a4a4a;
+                    font-size: 1.25rem;
+                    font-weight: 400;
+                    line-height: 1.25;
+                    word-break: break-word;
+                }
+
+                .container-traits{
+                    width: 100%;
+                    flex-grow: 1;
+                    margin: 0 auto;
+                    position: relative;
+                }
+
+                    .options-traits{
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                    }
+
+                        .field{
+                            margin-bottom: 0.75rem;
+                        }
+
+                            .label{
+                                color: #363636;
+                                display: block;
+                                font-size: 1rem;
+                                font-weight: 700;
+                                margin-bottom: 0.5em;
+                            }
+
+                               
+
+.input{
+    box-shadow: 0.5px 1px 3px #dbdbdb inset;
+    max-width: 100%;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #dbdbdb;
+    border-radius: 4px;
+    color: #363636;
+    align-items: center;
+    display: inline-flex;
+    font-size: 1rem;
+    height: 2.25em;
+    justify-content: flex-start;
+    line-height: 1.5;
+    padding: calc(0.375em -1px) calc(0.625em -1px);
+    position: relative;
+    vertical-align: top;
+}
+
+.textarea {
+    display: block;
+    max-width: 100%;
+    min-width: 100%;
+    min-height: 60px;
+    resize: vertical;
+    border: 1px solid #dbdbdb;
+    border-radius: 4px;
+    box-shadow: 0.1px 0.3px 3px #dbdbdb inset;
+    color: #363636;
+}
+
+
+.box-form{
+    margin-bottom: 100px;
+    margin-top: 150px;
+    padding-top: 10px;
+    padding-right: 60px;
+    padding-bottom: 30px;
+    padding-left: 60px;
+}
+
+    .form{
+        margin-bottom: 20px;
+    }
+
+    
+    .form  label{
+        margin-right: 10px;
+    }
+
+    .stats-form input{
+        max-width: 100px;
+    }

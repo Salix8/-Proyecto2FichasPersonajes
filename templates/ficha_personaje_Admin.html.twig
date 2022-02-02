@@ -1,12 +1,39 @@
 {% extends "base.html.twig" %}
 {% block title %}Personajes{% endblock %}
-{% block body %}
-    <h1>Ficha del personaje</h1>
+{% block stylesheets %}
+    <link href="{{ asset('/assetsGp/css/bgPyke.css') }}" rel="stylesheet" />
 
-    {% if personaje %}
-        {{ include ("partials/datos_personaje.html.twig", {"personaje": personaje}) }}
-    {% else %}
-        <p>Personaje {{ codigo }} no encontrado</p>
-    {% endif %}
+    <!-- Favicons -->
+    <link href="/assetsGp/img/ico/mascara2.ico" rel="icon">
+    <link href="/assetsGp/img/ico/mascara2.ico" rel="apple-touch-icon">
+{% endblock %}
+{% block body %}
+
+    <!-- ======= Accordion Section ======= -->
+    <section class="about">
+        <div class="container text-light" data-aos="fade-up">
+
+            <div class="row" id="after-header">
+                <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right" data-aos-delay="100">
+                    <h1 class="text-light">Ficha del personaje</h1>
+                    
+                    {% if personaje %}
+                        {{ include ("partials/datos_personaje.html.twig", {"personaje": personaje}) }}
+                    {% else %}
+                        <p>Personaje {{ codigo }} no encontrado</p>
+                    {% endif %}
+
+                </div>
+                <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+                    <img src="/assetsGp/img/Monje.jpg" class="img-fluid" alt="">
+                </div>
+            </div>
+
+        </div>
+    </section><!-- End Accordion Section -->
+    
+
+
+    
     
 {% endblock %}

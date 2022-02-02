@@ -1,14 +1,14 @@
 <!-- ======= Header ======= -->
-    <header id="header" class="fixed-top ">
+    <header id="header" class="fixed-top">
         <div class="container d-flex align-items-center justify-content-lg-between">
 
-        <h1 class="logo me-auto me-lg-0"><a href="../index.html.twig">CGA</a></h1>
+        <h1 class="logo me-auto me-lg-0"><a href="../index.html.twig"><span>CGA</span></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assetsGp/img/logo.png" alt="" class="img-fluid"></a>-->
 
             <nav id="navbar" class="navbar order-last order-lg-0">
                 <ul>
-                    <li><a class="nav-link scrollto active" href="/">Inicio</a></li>
+                    <li><a class="nav-link scrollto" href="/">Inicio</a></li>
                     <li><a class="nav-link scrollto" href="#">Tienda</a></li>
                     <li><a class="nav-link scrollto" href="/personaje">Personaje</a></li>
                     <li><a class="nav-link scrollto " href="/personaje/lista">Lista de personajes</a></li>
@@ -45,19 +45,51 @@
                             </li>
                         </ul>
                     </li>
-                    <li><a class="nav-link scrollto" href="/contacto">Contacto</a></li>
+                    
+                    {% if contacto is defined %}
+                        <li><a id="btn_login" class="nav-link scrollto" >Login</a></li>
+                    {% else %}
+                        <li><a class="nav-link scrollto" href="/contacto">Contacto</a></li>
+                    {% endif %}
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->
 
+            <div id="id_login" class="modal">
+                <form class="modal__content animate" action="#" method="post">
+                    <div class="img__container">
+                        <span id="close_modal" class="close close__login" title="Close Modal">&times;</span>
+                        <img src="/assetsGp/img/dado20.PNG" alt="Avatar" class="avatar">
+                    </div>
+                
+                    <div class="container__login">
+                        <label for="uname"><b>Username</b></label>
+                        <input type="text" class="entrada entrada__text__login" placeholder="Enter Username" name="uname" required>
+                
+                        <label for="psw"><b>Password</b></label>
+                        <input type="password" class="entrada entrada__psw__login" placeholder="Enter Password" name="psw" required>
+                        
+                        <button class="btn btn__login" type="submit">Login</button>
+                        <label>
+                            <input type="checkbox" checked="checked" name="remember"> Remember me
+                        </label>
+                    </div>
+            
+                <div class="container__send clearfix">
+                    <button type="button" onclick="document.getElementById('id_login').style.display='none'" class="btn btn__cancel__login">Cancel</button>
+                    <span class="psw">Forgot <a href="#">password?</a></span>
+                </div>
+                </form>
+            </div>
+
             
 
-            <a href="#" class="get-started-btn scrollto">Empezar</a>
+            <a href="/personaje/nuevo" class="get-started-btn scrollto">Empezar</a>
 
         </div>
         
     </header><!-- End Header -->
-    <div id="progress_bar_container">
+    <div id="progress_bar_container" class="fixed-top">
         <div id="progress_bar"></div>
     </div>
     

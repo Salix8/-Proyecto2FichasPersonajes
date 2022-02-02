@@ -1,0 +1,72 @@
+{% extends "base.html.twig" %}
+{% block title %}Nuevo personaje{% endblock %}
+{% block stylesheets %}
+    <link href="{{ asset('/assetsGp/css/bgPyke.css') }}" rel="stylesheet" />
+    <link href="{{ asset('/assetsGp/css/crearPersonaje.css') }}" rel="stylesheet" />
+    <!-- Favicons -->
+    <link href="/assetsGp/img/ico/dragon2.ico" rel="icon">
+    <link href="/assetsGp/img/ico/dragon2.ico" rel="apple-touch-icon">
+{% endblock %}
+{% block javascripts %}
+    <script src="/assetsGp/js/generaNuevosCampos.js"></script>
+{% endblock %}
+
+{% block body %}
+    
+
+
+    <div class="container bg-light rounded box-form">
+        <h1 id="after-header">Nuevo Personaje</h1>
+        <div class="row">
+            {% form_theme formulario 'bootstrap_5_horizontal_layout.html.twig' %}
+            {{ form_start(formulario) }}
+                {{ form_errors(formulario) }}
+
+                <div class="row form">
+                    <div class="col-6">
+                        {{ form_row(formulario.nombre) }}
+                    </div>
+                    <div class="col-6">
+                        {{ form_row(formulario.raza) }}
+                    </div>
+                </div>
+
+                <div class="row form">
+                    <div class="col-6">
+                        {{ form_row(formulario.clase) }}
+                    </div>
+                    <div class="col-6">
+                        {{ form_row(formulario.nivel) }}
+                    </div>
+                </div>
+
+                <div class="row form stats-form">
+                    <div class="col-12 d-flex align-content-center justify-content-between ">
+                        {{ form_row(formulario.fuerza) }}
+                        {{ form_row(formulario.destreza) }}
+                        {{ form_row(formulario.constitucion) }}
+                        {{ form_row(formulario.inteligencia) }}
+                        {{ form_row(formulario.sabiduria) }}
+                        {{ form_row(formulario.carisma) }}
+                    </div>
+                </div>
+                {{ form_row(formulario.descripcion) }}
+                {{ form_row(formulario.equipamiento) }}
+                
+                <div>
+                <div id="nuevoCampo"></div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-12 d-flex justify-content-between mt-3">
+                        <button type="button" id="mascampos" class="button is-medium is-rounded"> + Añadir habilidad </button>
+                        {{ form_row(formulario.save) }}
+                    </div>
+                </div>
+                
+            {{ form_end(formulario) }} 
+        </div>
+    </div>
+
+{% endblock %}
