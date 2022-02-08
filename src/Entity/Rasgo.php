@@ -45,6 +45,11 @@ class Rasgo
      */
     private $rasgoPersonaje;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Personaje::class, inversedBy="rasgo")
+     */
+    private $personaje;
+
     public function __construct()
     {
         $this->personajes = new ArrayCollection();
@@ -129,6 +134,18 @@ class Rasgo
     public function setRasgoPersonaje(?Personaje $rasgoPersonaje): self
     {
         $this->rasgoPersonaje = $rasgoPersonaje;
+
+        return $this;
+    }
+
+    public function getPersonaje(): ?Personaje
+    {
+        return $this->personaje;
+    }
+
+    public function setPersonaje(?Personaje $personaje): self
+    {
+        $this->personaje = $personaje;
 
         return $this;
     }

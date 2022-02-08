@@ -16,7 +16,7 @@
 
 
     <div class="container bg-light rounded box-form">
-        <h1 id="after-header">Nuevo Personaje</h1>
+        <h1 id="after-header" class="color-honey bold">Nuevo Personaje</h1>
         <div class="row">
             {% form_theme formulario 'bootstrap_5_horizontal_layout.html.twig' %}
             {{ form_start(formulario) }}
@@ -58,14 +58,14 @@
                 </div>
 
 
-                <div class="row">
-                    <div class="col-12 d-flex justify-content-between mt-3">
-                        <button type="button" id="mascampos" class="button is-medium is-rounded"> + Añadir habilidad </button>
+                <div class="row d-flex justify-content-center mt-3">
+                        <button type="button" id="mascampos" class="col-12 mt-3 button is-medium is-rounded" style="width: 200px"> + Añadir habilidad </button>
+                    <div class="col-12 d-flex justify-content-end mt-3">
                         {{ form_row(formulario.save) }}
                     </div>
                 </div>
                 
-            {{ form_end(formulario) }} 
+            {{ form_end(formulario) }}
         </div>
     </div>
 

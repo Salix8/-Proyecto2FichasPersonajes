@@ -6,11 +6,13 @@ use App\Entity\Rasgo;
 use App\Entity\Personaje;
 use App\Entity\TipoAccion;
 use App\Entity\Usuario;
+use App\Form\PersonajeType;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+
 
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -91,23 +93,8 @@ class PersonajeController extends AbstractController
 
         $personaje = new Personaje();
 
-        /* $formulario = $this->createForm(PersonajeType::class->isValid()); */
+        $formulario = $this->createForm(PersonajeType::class, $personaje);
 
-        $formulario = $this->createFormBuilder($personaje)
-            ->add('nombre', TextType::class)
-            ->add('raza', TextType::class)
-            ->add('clase', TextType::class)
-            ->add('nivel', NumberType::class)
-            ->add('fuerza', NumberType::class)
-            ->add('destreza', NumberType::class)
-            ->add('constitucion', NumberType::class)
-            ->add('inteligencia', NumberType::class)
-            ->add('sabiduria', NumberType::class)
-            ->add('carisma', NumberType::class)
-            ->add('descripcion', TextareaType::class)
-            ->add('equipamiento', TextareaType::class)
-            ->add('save', SubmitType::class)
-            ->getForm();
         $formulario->handleRequest($request);
 
         if ($formulario->isSubmitted() && $formulario->isValid()) {
@@ -122,41 +109,28 @@ class PersonajeController extends AbstractController
     }
 
     /**
-     * @Route("/personaje/editar/(codigo)", name="editar_personaje")
+     * @Route("/personaje/editar/(codigo)", name="editar_personaje", requirements={"codigo"="\d+"})
      */
     public function editar(ManagerRegistry $doctrine, Request $request, $codigo): Response {
 
         $repositorio = $doctrine->getRepository(Personaje::class);
         $personaje = $repositorio->find($codigo);
 
-
-        $formulario = $this->createFormBuilder($personaje)
-            ->add('nombre', TextType::class)
-            ->add('raza', TextType::class)
-            ->add('clase', TextType::class)
-            ->add('nivel', NumberType::class)
-            ->add('fuerza', NumberType::class)
-            ->add('destreza', NumberType::class)
-            ->add('constitucion', NumberType::class)
-            ->add('inteligencia', NumberType::class)
-            ->add('sabiduria', NumberType::class)
-            ->add('carisma', NumberType::class)
-            ->add('descripcion', TextareaType::class, ['require' => false])
-            ->add('equipamiento', TextareaType::class, ['require' => false])
-            ->add('autor_id', EntityType::class, array(
-                'class' => Usuario::class , 'empty_data' => 1))
-            ->add('save', SubmitType::class)
-            ->getForm();
-        $formulario->handleRequest($request);
-
-        if ($formulario->isSubmitted() && $formulario->isValid()) {
-            $personaje = $formulario->getData();
-            $entityManager = $doctrine->getManager();
-            $entityManager->persist($personaje);
-            $entityManager->flush();
+        if ($personaje) {
+            $formulario = $this->createForm(PersonajeType::class, $personaje);
+            $formulario->handleRequest($request);
+            
+            if ($formulario->isSubmitted() && $formulario->isValid()) { 
+                $personaje = $formulario->getData();
+                $entityManager = $doctrine->getManager();
+                $entityManager->persist($personaje);
+                $entityManager->flush();
+                return $this->redirectToRoute('ficha_personaje', ['codigo' => $personaje->getId()]);
+            }
+            return $this->render('nuevo.html.twig', array('formulario' => $formulario->createView()));
+        }else{
+            return $this->render('ficha_personaje.html.twig', ['personaje' => NULL ]);
         }
-
-        return $this->render("editor.html.twig", array('formulario' => $formulario->createView()));
     }
 
     /**
@@ -191,9 +165,7 @@ class PersonajeController extends AbstractController
         
         $modCompetencia = $repositorio->definirBonoCompetencia($personaje->getNivel(['nivel']));
         $hitPoints = $repositorio->definirHitPoints($personaje->getClase(['clase']));
-        
-        var_dump($modCarisma);
-        var_dump($modFuerza);
+
 
         return $this->render("personaje/ficha-personaje.html.twig", [
         "personaje" => $personaje, "codigo" => $codigo, 
@@ -250,6 +222,37 @@ class PersonajeController extends AbstractController
                 "personaje" => null
             ]);
         }
+    }
+
+    /*
+     * Creates a new ActionItem entity.
+     *
+     * @Route("/search", name="ajax_search")
+     * @Method("GET")
+     */
+    public function searchAction(Request $request) {
+        $em = $this->getDoctrine()->getManager();
+
+        $requestString = $request->get('q');
+
+        $entities =  $em->getRepository('AppBundle:Entity')->findEntitiesByString($requestString);
+
+        if(!$entities) {
+            $result['entities']['error'] = "keine Einträge gefunden";
+        } else {
+            $result['entities'] = $this->getRealEntities($entities);
+        }
+
+        return new Response(json_encode($result));
+    }
+
+    public function getRealEntities($entities){
+
+        foreach ($entities as $entity){
+            $realEntities[$entity->getId()] = $entity->getFoo();
+        }
+
+        return $realEntities;
     }
 
     /**

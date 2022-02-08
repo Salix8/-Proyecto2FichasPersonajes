@@ -7,7 +7,32 @@
     <link href="/assetsGp/img/ico/mascara2.ico" rel="icon">
     <link href="/assetsGp/img/ico/mascara2.ico" rel="apple-touch-icon">
 {% endblock %}
+{% block javascripts %}
+    <script type="text/javascript">
+        $('#autoText').autocompleter({url_list: '/auto_search', url_get: '/auto_get/'});
+    </script>
+{% endblock %}
 {% block body %}
+
+<style>
+#autoCompletedList {
+  color: hsl(0, 0%, 0%);
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+#autoCompletedList li {
+  background: #424242;
+  padding: 5px;
+  color: hsl(0, 0%, 100%);
+  border-bottom: dotted 1px hsl(0, 0%, 58%);
+}
+#autoCompletedList li:hover {
+  background: hsl(0, 0%, 36%);
+  cursor: pointer;
+}
+</style>
+
 
     <!-- ======= Accordion Section ======= -->
     <section class="about">
@@ -15,6 +40,13 @@
 
             <div class="row" id="after-header">
                 <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right" data-aos-delay="100">
+
+                    <div class="col-md-10">
+                        {% for personajes in personaje -%}
+                            {{ {id: personaje.id, label: personaje.name, value: personaje.name}|json_encode|raw }}
+                            {%- if not loop.last %},{% endif -%}
+                        {%- endfor %}
+                    </div>
                     <h1 class="text-light">Ficha del personaje</h1>
                     
                     {% if personaje %}
@@ -37,3 +69,4 @@
     
     
 {% endblock %}
+

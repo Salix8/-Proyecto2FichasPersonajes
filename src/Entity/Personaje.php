@@ -125,18 +125,25 @@ class Personaje
     private $equipamiento;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Usuario::class, inversedBy="personajes")
-     */
-    private $autor;
-
-    /**
      * @ORM\OneToMany(targetEntity=Rasgo::class, mappedBy="rasgoPersonaje")
      */
     private $rasgos;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="personajes")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Rasgo::class, mappedBy="personaje")
+     */
+    private $rasgo;
+
     public function __construct()
     {
         $this->rasgos = new ArrayCollection();
+        $this->rasgo = new ArrayCollection();
     }
 
 
@@ -289,18 +296,6 @@ class Personaje
         return $this;
     }
 
-    public function getAutor(): ?Usuario
-    {
-        return $this->autor;
-    }
-
-    public function setAutor(?Usuario $autor): self
-    {
-        $this->autor = $autor;
-
-        return $this;
-    }
-
     /**
      * @return Collection|Rasgo[]
      */
@@ -329,6 +324,26 @@ class Personaje
         }
 
         return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Rasgo[]
+     */
+    public function getRasgo(): Collection
+    {
+        return $this->rasgo;
     }
 
 }

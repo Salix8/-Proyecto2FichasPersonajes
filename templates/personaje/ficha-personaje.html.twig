@@ -15,7 +15,7 @@
     <div id="after-header" class="wrapper container" id="contenedorFichaPersonaje">
 
 
-        <div class="row bg-dark text-white">
+        <div class="row stat__box" data-aos="zoom-in" data-aos-delay="100">
             {{ include('partials/datos-inicio-personaje.part.html.twig') }}
         </div>
 
@@ -30,8 +30,8 @@
         <div class="row gx-4 align-items-center">
             <div class="col-3 text-center">
                 <div>
-                    <div class="stat__box">
-                    <div>Tiradas de salvación</div>
+                    <div class="stat__box" data-aos="zoom-in" data-aos-delay="100">
+                        <div>Tiradas de salvación</div>
                         <div class="row row-cols-2">
                             <div>
                                 <input class="form-check-input" type="radio" name="salvacionFuerza" value="salvacionFuerza">
@@ -66,17 +66,17 @@
                         </div>
                     </div>
                     <br>
-                    <div class="stat__box">
+                    <div class="stat__box" data-aos="zoom-in" data-aos-delay="100">
                         <div class="row row-cols-1">
-                            <div>{{ 10 + modSabiduria }} percepción (WIS pasiva)</div>
-                            <div>{{ 10 + modInteligencia }} investigación (INT pasiva)</div>
-                            <div>{{ 10 + modSabiduria }} perspicacia (WIS pasiva)</div>
+                            <div><div class="stat d20">{{ 10 + modSabiduria }}</div> percepción (WIS pasiva)</div>
+                            <div><div class="stat d20">{{ 10 + modInteligencia }}</div> investigación (INT pasiva)</div>
+                            <div><div class="stat d20">{{ 10 + modSabiduria }}</div> perspicacia (WIS pasiva)</div>
                         </div>
                         <div>Vision en la oscuridad 120 pies</div>
                         <div>Sentidos</div>
                     </div>
                     <br>
-                    <div class="stat__box text-start">
+                    <div class="stat__box text-start" data-aos="zoom-in" data-aos-delay="100">
                         <div>
                             <div>Armadura</div>
                             <div>Ninguna</div>
@@ -102,12 +102,12 @@
                 </div>
             </div>
             <div class="col-3 text-center">
-                <div class="stat__box">
+                <div class="stat__box" data-aos="zoom-in" data-aos-delay="100">
                     {% include "partials/habilidades-personaje.part.html.twig" %}
                 </div>
             </div>
             <div class="col text-center">
-                <div class="stat__box" id="acciones">
+                <div class="stat__box" id="acciones" data-aos="zoom-in" data-aos-delay="100">
                     {% include "partials/acordeon.part.html.twig" %}
                 </div>
             </div>
