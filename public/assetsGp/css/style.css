@@ -142,9 +142,6 @@ h1, h2, h3, h4, h5, h6 {
 #header .logo img {
   max-height: 40px;
 }
-#after-header{
-  margin-top: 90px;
-}
 
 /*--------------------------------------------------------------
 #  Get Startet Button
@@ -1348,4 +1345,17 @@ section {
   text-align: center;
   font-size: 13px;
   color: #fff;
+}
+
+/*--------------------------------------------------------------
+# Other
+--------------------------------------------------------------*/
+#after-header{
+  margin-top: 90px;
+}
+.color-honey{
+  color: #ffc451;
+}
+.bold{
+  font-weight: bold;
 }

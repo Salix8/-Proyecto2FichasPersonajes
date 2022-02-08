@@ -15,7 +15,7 @@ $(document).ready(function(){
         nombreCampo = elem.data(`nombreCampo`);
         indice = elem.data(`indice`);
         textoInsertar = `
-        <div class="box">
+        <div class="box-rasgo">
           <h2 class="subtitle"> ${etiqueta} ${indice} </h2> 
           <div class="container-traits">
             <div class="options-traits-item">
@@ -23,7 +23,7 @@ $(document).ready(function(){
                 <label class="label">Tipo de acción</label>
                 <div class="control">
                   <span class="select is-small">
-                    <select name="tipo de habilidad">
+                    <select class="select-tipoAccion" name="tipo-de-habilidad">
                       <option value="accion">Acción</option>
                       <option value="accionAdicional">Acción adicional</option>
                       <option value="reacción">Redacción</option>
@@ -37,7 +37,7 @@ $(document).ready(function(){
             <div class="field">
               <label class="label">Nombre del Rasgo</label>
               <div class="control has-icons-left is-clearfix">
-                <input type="text" autocomplete="on" placeholder="Nombre del rasgo 1" name ="${nombreCampo} ${indice} Title" class="input">
+                <input type="text" autocomplete="on" placeholder="Nombre del rasgo ${indice}" name="${nombreCampo}-${indice}-Title" class="input">
                 <span class="icon is-left"><i class="mdi mdi-format-title mdi-24px"></i></span>
               </div>
             </div>
@@ -49,7 +49,7 @@ $(document).ready(function(){
               </span>
             </label>
             <div class="control has-icons-right">
-              <textarea maxlength="9999" name ="${nombreCampo} ${indice} Desc" placeholder="Descripcion del Rasgo 1" class="textarea" ></textarea>
+              <textarea maxlength="9999" name="${nombreCampo}-${indice}-Desc" placeholder="Descripcion del Rasgo ${indice}" class="textarea" ></textarea>
               <span class="icon is-right has-text-danger">
                 <i class="mdi mdi-alert-circle mdi-24px"></i>
               </span>
@@ -66,7 +66,6 @@ $(document).ready(function(){
         elem.before(nuevoCampo);
       });
     });
-
   };
 
   $("#mascampos").generaNuevosCampos("Rasgo", "rasgo", 1);
