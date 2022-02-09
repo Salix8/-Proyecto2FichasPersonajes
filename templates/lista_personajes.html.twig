@@ -2,6 +2,7 @@
 {% block title %}Personajes{% endblock %}
 {% block stylesheets %}
     <link href="{{ asset('/assetsGp/css/bgPyke.css') }}" rel="stylesheet" />
+    <link href="{{ asset('/assetsGp/css/listaPersonajes.css') }}" rel="stylesheet" />
 
     <!-- Favicons -->
     <link href="/assetsGp/img/ico/mascara2.ico" rel="icon">
@@ -18,7 +19,7 @@
       <div class="container" data-aos="fade-up">
 
         <div class="row" id="after-header">
-          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right" data-aos-delay="100">
+          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content bg-light bg-opacity-50 p-3 rounded" data-aos="fade-right" data-aos-delay="100">
             <h1>Listado de personajes</h1>
             
             {% if personajes %}
