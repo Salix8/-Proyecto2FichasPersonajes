@@ -1,65 +1,29 @@
 $(document).ready(function(){
 
-    function crearJSON() {
-        alert($(`.select-tipoAccion`).val());
-        alert($(`.input`).val());
-        alert($(`.textarea`).val());
-    }
-
-    
-
-    $(`#form_save`).on(`click`, (event)=>{
+    $(`#personaje_save`).on(`click`, (event)=>{
         event.preventDefault();
-        /* createJSON(); */
-        crearJSON();
+        createJSON();
         $(`form`).submit();
     })
 
     function createJSON() {
-        jsonObj = [];
-        console.log($(`.select-tipoAccion`).val());
 
-        console.log($(`.input`).val());
-        console.log($(`.textarea`).val())
+        let dataToUpload = {
+            tipoAccion: $(`.select-tipoAccion`).val(),
+            titulo: $(`.input`).val(),
+            descripcion: $(`.textarea`).val()
+        }
 
-        $(`.select-tipoAccion`).each(function() {
-            alert("select");
-            var id = $(this).prop("title");
-            var text = $(this).val();
-    
-            item = {}
-            item ["title"] = id;
-            item ["text"] = text;
-    
-            jsonObj.push(item);
+        localStorage.setItem(`datos`, JSON.stringify(dataToUpload));
+
+        $.ajax({
+            type: `POST`,
+            url: ``,
+            data: JSON.stringify(dataToUpload)
+        })
+        .done(()=>{
+            alert(`Los datos se han enviado correctamente`);
         });
-        console.log($(`.input`));
-        $("input[type='text']").each(function() {
-            alert("input");
-            var id = $(this).prop("title");
-            var text = $(this).val();
-    
-            item = {}
-            item ["title"] = id;
-            item ["text"] = text;
-    
-            jsonObj.push(item);
-        });
-
-        $(`.textarea`).each(function() {
-            alert("textarea");
-
-            var id = $(this).prop("title");
-            var text = $(this).val();
-    
-            item = {}
-            item ["title"] = id;
-            item ["text"] = text;
-    
-            jsonObj.push(item);
-        });
-    
-        console.log(jsonObj);
-        alert(JSON.stringify(jsonObj));
+        
     }
 });

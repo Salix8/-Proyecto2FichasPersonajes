@@ -1,7 +1,51 @@
+.personaje-box{
+    height: 669px;
+    overflow: auto;
+}
+
 .title-accordion{
     width: 100%;
     background: #ffbb38ee;
-    color: #343a40;
+    border:2px solid #ffbb38ee;
     padding: 2px;
     border-radius: 3px;
 }
+
+    .title-accordion:hover{
+        background-color: transparent;
+        border:2px solid #ffbb38ee;
+        color: #fff;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    .title-accordion > a {
+        color: #343a40;
+        font-weight: 100;
+        padding: 2px;
+    }
+
+    .title-accordion:hover > a {
+        color: #fffd;
+    }
+    
+.title-accordion-box{
+    background-color: #ffe7bbee;
+    border-radius: 10px;
+    padding: 10px 20px 0px 0px;
+}
+
+    .title-accordion-box a {
+        background-color: #fff9eeee;
+        color: #ffbb38;
+        padding: 2px 4px;
+        border-radius: 3px;
+    }
+
+    .title-accordion-box a:hover{
+        color: #343a40;
+    }
+    
+    .title-accordion-box > div > ul {
+        list-style: none;
+    }
