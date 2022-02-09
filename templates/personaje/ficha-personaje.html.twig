@@ -8,72 +8,86 @@
     <link href="/assetsGp/img/ico/casco.ico" rel="apple-touch-icon">
 {% endblock %}
 {% block javascripts %}
-    <script src="/assetsGp/js/jsFichaPersonaje.js"></script>
+    <script src="/assetsGp/js/d20.js"></script>
 {% endblock %}
 {% block body %}
 
     <div id="after-header" class="wrapper container" id="contenedorFichaPersonaje">
 
 
-        <div class="row stat__box" data-aos="zoom-in" data-aos-delay="100">
+        <div class="row stat__box fondoBlanco" data-aos="zoom-in" data-aos-delay="100">
             {{ include('partials/datos-inicio-personaje.part.html.twig') }}
         </div>
 
         <br><br>
 
-        <div class="row gx-4 align-items-center">
+        <div class="row">
             {{ include('partials/stats-personaje.part.html.twig') }}
         </div>
 
         <br>
 
-        <div class="row gx-4 align-items-center">
+        <div class="row gx-4">
             <div class="col-3 text-center">
                 <div>
                     <div class="stat__box" data-aos="zoom-in" data-aos-delay="100">
                         <div>Tiradas de salvación</div>
-                        <div class="row row-cols-2">
-                            <div>
-                                <input class="form-check-input" type="radio" name="salvacionFuerza" value="salvacionFuerza">
-                                <label class="form-check-label" for="exampleRadios3">STR</label>
-                                <div class="stat d20" value="{{ modFuerza }}">{{ modFuerza }}</div>
+                        <div class="row row-cols-2 justify-content-center mt-2">
+                            <div class="row row-cols-2 mb-2">
+                                <div class="col-12 d-flex">
+                                    {# <input class="form-check-input" type="radio" name="salvacionFuerza" value="salvacionFuerza"> #}
+                                    <label class="form-check-label" for="exampleRadios3">STR</label>
+                                    <div class="stat d20" value="{{ modFuerza }}">{{ modFuerza }}</div>
+                                </div>
                             </div>
-                            <div>
-                                <input class="form-check-input" type="radio" name="salvacionDestreza" value="salvacionDestreza">
-                                <label class="form-check-label" for="exampleRadios3">DEX</label>
-                                <div class="stat d20" value="{{ modDestreza }}">{{ modDestreza }}</div>
+                            <div class="row row-cols-2 mb-2">
+                                <div class="col-12 d-flex">
+                                    {# <input class="form-check-input" type="radio" name="salvacionDestreza" value="salvacionDestreza"> #}
+                                    <label class="form-check-label" for="exampleRadios3">DEX</label>
+                                    <div class="stat d20" value="{{ modDestreza }}">{{ modDestreza }}</div>
+                                </div>
                             </div>
-                            <div>
-                                <input class="form-check-input" type="radio" name="salvacionConstitucion" value="salvacionConstitucion">
-                                <label class="form-check-label" for="exampleRadios3">CON</label>
-                                <div class="stat d20" value="{{ modConstitucion }}">{{ modConstitucion }}</div>
+                            <div class="row row-cols-2 mb-2">
+                                <div class="col-12 d-flex">
+                                    {# <input class="form-check-input" type="radio" name="salvacionConstitucion" value="salvacionConstitucion"> #}
+                                    <label class="form-check-label" for="exampleRadios3">CON</label>
+                                    <div class="stat d20" value="{{ modConstitucion }}">{{ modConstitucion }}</div>
+                                </div>
                             </div>
-                            <div>
-                                <input class="form-check-input" type="radio" name="salvacionInteligencia" value="salvacionInteligencia">
-                                <label class="form-check-label" for="exampleRadios3">INT</label>
-                                <div class="stat d20" value="{{ modInteligencia }}">{{ modInteligencia }}</div>
+                            <div class="row row-cols-2 mb-2">
+                                <div class="col-12 d-flex">
+                                    {# <input class="form-check-input" type="radio" name="salvacionInteligencia" value="salvacionInteligencia"> #}
+                                    <label class="form-check-label" for="exampleRadios3">INT</label>
+                                    <div class="stat d20" value="{{ modInteligencia }}">{{ modInteligencia }}</div>
+                                </div>
                             </div>
-                            <div>
-                                <input class="form-check-input" type="radio" name="salvacionSabiduria" value="salvacionSabiduria">
-                                <label class="form-check-label" for="exampleRadios3">WIS</label>
-                                <div class="stat d20" value="{{ modSabiduria }}">{{ modSabiduria }}</div>
+                            <div class="row row-cols-2 mb-2">
+                                <div class="col-12 d-flex">
+                                    {# <input class="form-check-input" type="radio" name="salvacionSabiduria" value="salvacionSabiduria"> #}
+                                    <label class="form-check-label" for="exampleRadios3">WIS</label>
+                                    <div class="stat d20" value="{{ modSabiduria }}">{{ modSabiduria }}</div>
+                                </div>
                             </div>
-                            <div>
-                                <input class="form-check-input" type="radio" name="salvacionCarisma" value="salvacionCarisma">
-                                <label class="form-check-label" for="exampleRadios3">WIS</label>
-                                <div class="stat d20" value="{{ modCarisma }}">{{ modCarisma }}</div>
+                            <div class="row row-cols-2 mb-2">
+                                <div class="col-12 d-flex">
+                                    {# <input class="form-check-input" type="radio" name="salvacionCarisma" value="salvacionCarisma"> #}
+                                    <label class="form-check-label" for="exampleRadios3">WIS</label>
+                                    <div class="stat d20" value="{{ modCarisma }}">{{ modCarisma }}</div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <br>
                     <div class="stat__box" data-aos="zoom-in" data-aos-delay="100">
-                        <div class="row row-cols-1">
-                            <div><div class="stat d20">{{ 10 + modSabiduria }}</div> percepción (WIS pasiva)</div>
-                            <div><div class="stat d20">{{ 10 + modInteligencia }}</div> investigación (INT pasiva)</div>
-                            <div><div class="stat d20">{{ 10 + modSabiduria }}</div> perspicacia (WIS pasiva)</div>
-                        </div>
-                        <div>Vision en la oscuridad 120 pies</div>
                         <div>Sentidos</div>
+                        <div>Vision en la oscuridad 120 pies</div>
+                        <div class="container">
+                            <div class="row row-cols-1">
+                                <div class="row row-cols-2 col-12 mb-2 mt-2"><div class="stat d20 col-4">{{ 10 + modSabiduria }}</div> <div class="col-8">percepción</div></div>
+                                <div class="row row-cols-2 col-12 mb-2"><div class="stat d20 col-4">{{ 10 + modInteligencia }}</div> <div class="col-8">investigación</div></div>
+                                <div class="row row-cols-2 col-12 mb-2"><div class="stat d20 col-4">{{ 10 + modSabiduria }}</div> <div class="col-8">perspicacia</div></div>
+                            </div>
+                        </div>
                     </div>
                     <br>
                     <div class="stat__box text-start" data-aos="zoom-in" data-aos-delay="100">
@@ -107,7 +121,7 @@
                 </div>
             </div>
             <div class="col text-center">
-                <div class="stat__box" id="acciones" data-aos="zoom-in" data-aos-delay="100">
+                <div class="stat__box" style="overflow: auto;" id="acciones" data-aos="zoom-in" data-aos-delay="100">
                     {% include "partials/acordeon.part.html.twig" %}
                 </div>
             </div>

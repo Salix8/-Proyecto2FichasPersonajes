@@ -36,32 +36,33 @@
 
     <!-- ======= Accordion Section ======= -->
     <section class="about">
-        <div class="container text-light" data-aos="fade-up">
+      <div class="container" data-aos="fade-up">
 
-            <div class="row" id="after-header">
-                <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right" data-aos-delay="100">
+        <div class="row" id="after-header">
+          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content bg-light bg-opacity-50 p-3 rounded personaje-box" data-aos="fade-right" data-aos-delay="100">
+            <h1 class="mb-4"><strong>Listado de personajes</strong></h1>
+            
+            {% if personajes is defined%}
 
-                    <div class="col-md-10">
-                        {% for personajes in personaje -%}
-                            {{ {id: personaje.id, label: personaje.name, value: personaje.name}|json_encode|raw }}
-                            {%- if not loop.last %},{% endif -%}
-                        {%- endfor %}
-                    </div>
-                    <h1 class="text-light">Ficha del personaje</h1>
+                <div id="notaccordion">
+                {% for personaje in personajes %}
                     
-                    {% if personaje %}
-                        {{ include ("partials/datos_personaje.html.twig", {"personaje": personaje}) }}
-                    {% else %}
-                        <p>Personaje {{ codigo }} no encontrado</p>
-                    {% endif %}
-
+                    {{ include ("partials/datos_personaje.html.twig", {"personaje": personaje}) }}
+                    
+                {% endfor %}
                 </div>
-                <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
-                    <img src="/assetsGp/img/Monje.jpg" class="img-fluid" alt="">
-                </div>
-            </div>
 
+            {% else %}
+                <p>No se ha encontrado ningun personaje que contenga {{ codigo }} <p>
+            {% endif %}
+
+          </div>
+          <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+            <img src="/assetsGp/img/Monje.jpg" class="img-fluid" alt="">
+          </div>
         </div>
+
+      </div>
     </section><!-- End Accordion Section -->
     
 

@@ -1,11 +1,13 @@
 
-  <h3><a class="title-accordion mb-5" href="#"><strong>{{ personaje.nombre }}</strong></a></h3>
+  <h3 class="title-accordion mt-3"><a href="#">{{ personaje.nombre }}</a></h3>
 
-  <div>
-    <li><a href="/personaje/ficha/{{ personaje.id }}"><strong>Ficha {{ personaje.nombre }}</strong></a></li>
-    <li><strong>Raza</strong>: {{ personaje.raza }}</li>
-    <li><strong>Clase</strong>: {{ personaje.clase }}</li>
-    <li><strong>Nivel</strong>: {{ personaje.nivel }}</li>
-    {# <li><strong>Autor</strong>: {{ personaje.user_id }}</li> #}
-    {# https://gist.github.com/aimeric/f98af4a3f728bea9e3c9a0918d2a7e2b #}
+  <div class="title-accordion-box">
+    <ul>
+      <li><a href="/personaje/ficha/{{ personaje.id }}"><strong>Ficha {{ personaje.nombre }}</strong></a></li>
+      <li><strong>Raza</strong>: {{ personaje.raza }}</li>
+      <li><strong>Clase</strong>: {{ personaje.clase }}</li>
+      <li><strong>Nivel</strong>: {{ personaje.nivel }}</li>
+      {# <li><strong>Autor</strong>: {{ personaje.user }}</li> #}
+      {# https://gist.github.com/aimeric/f98af4a3f728bea9e3c9a0918d2a7e2b #}
+    </ul>
   </div>

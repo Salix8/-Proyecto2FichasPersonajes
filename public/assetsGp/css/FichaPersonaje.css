@@ -10,7 +10,8 @@ button{
 }
 
 .stat__box{
-    background-color: #fff;
+    box-sizing: border-box;
+    background-color: #fffd;
     text-align: center;
     border: 1px solid #ebebeb;
     border-radius: 5px;
@@ -18,26 +19,34 @@ button{
     transition: all ease-in-out 0.3s;
     box-shadow: 0px 0 25px 0 rgba(0, 0, 0, 0.1);
     transform: translateY(-10px);
+    margin: auto;
 }
 
-    .stat{
+    .stat__box > div{
         margin: 0 auto;
-        width: 40px;
-        height: 30px;
-        background-color: #ffc451;
-        border-radius: 4px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: 0.3s;
     }
 
+.stat{
+    margin: 0 auto;
+    width: 40px;
+    height: 30px;
+    background-color: #ffc451;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
     .stat:hover{
-        background-color: #f8b836;
-        width: 42px;
-        height: 32px;
-        border-radius: 3px;
+        background-color: #ffaa00;
+        border-radius: 8px;
+        font-size: 21px;
     }
+
+.fondoBlanco{
+    background-color: #fffb;
+}
 
 /* The dots/bullets/indicators */
 .dot {

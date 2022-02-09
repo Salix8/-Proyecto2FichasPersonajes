@@ -51,6 +51,15 @@
                     {% else %}
                         <li><a class="nav-link scrollto" href="/contacto">Contacto</a></li>
                     {% endif %}
+
+                    {% if app.user %}
+                        <a href="#">{{app.user.email}}</a>
+                        <li class="nav-item"><a class="nav-link" href="/logout">Log out</a></li>
+                    {% else %}
+                        <li><a class="nav-link scrollto" href="/register">Registro</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/login">Log in</a></li>
+                    {% endif %}
+                        
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->
@@ -82,9 +91,7 @@
                 </form>
             </div>
 
-            
-
-            <a href="/personaje/nuevo" class="get-started-btn scrollto">Empezar</a>
+                <a href="/personaje/nuevo" class="get-started-btn scrollto">Empezar</a>
 
         </div>
         

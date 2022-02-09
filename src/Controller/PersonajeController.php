@@ -5,7 +5,7 @@ namespace App\Controller;
 use App\Entity\Rasgo;
 use App\Entity\Personaje;
 use App\Entity\TipoAccion;
-use App\Entity\Usuario;
+use App\Entity\User;
 use App\Form\PersonajeType;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -13,13 +13,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
-
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\NumberType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 
 class PersonajeController extends AbstractController
@@ -100,6 +93,8 @@ class PersonajeController extends AbstractController
         if ($formulario->isSubmitted() && $formulario->isValid()) {
             $personaje = $formulario->getData();
             $entityManager = $doctrine->getManager();
+            $personaje->setUser($this->getUser());
+            $this->test($personaje);
             $entityManager->persist($personaje);
             $entityManager->flush();
             return $this->redirectToRoute('ficha_personaje', ['codigo' => $personaje->getId()]);
@@ -131,6 +126,19 @@ class PersonajeController extends AbstractController
         }else{
             return $this->render('ficha_personaje.html.twig', ['personaje' => NULL ]);
         }
+    }
+
+    public function test($player){
+        $json = file_get_contents('php://input');
+        $playerData = json_decode($json, false);
+
+        var_dump($playerData);
+
+        $player->setTipoaccion($playerData->tipoAccion);
+        $player->setNombre($playerData->titulo);
+        $player->setDescripcion($playerData->descripcion);
+
+        $player->insertPlayer($this->doc);
     }
 
     /**
@@ -222,37 +230,6 @@ class PersonajeController extends AbstractController
                 "personaje" => null
             ]);
         }
-    }
-
-    /*
-     * Creates a new ActionItem entity.
-     *
-     * @Route("/search", name="ajax_search")
-     * @Method("GET")
-     */
-    public function searchAction(Request $request) {
-        $em = $this->getDoctrine()->getManager();
-
-        $requestString = $request->get('q');
-
-        $entities =  $em->getRepository('AppBundle:Entity')->findEntitiesByString($requestString);
-
-        if(!$entities) {
-            $result['entities']['error'] = "keine Einträge gefunden";
-        } else {
-            $result['entities'] = $this->getRealEntities($entities);
-        }
-
-        return new Response(json_encode($result));
-    }
-
-    public function getRealEntities($entities){
-
-        foreach ($entities as $entity){
-            $realEntities[$entity->getId()] = $entity->getFoo();
-        }
-
-        return $realEntities;
     }
 
     /**

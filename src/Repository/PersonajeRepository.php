@@ -28,17 +28,6 @@ class PersonajeRepository extends ServiceEntityRepository
         return $qb->execute();
     }
 
-    public function findEntitiesByString($str){
-        return $this->getEntityManager()
-            ->createQuery(
-                'SELECT e
-                FROM AppBundle:Entity e
-                WHERE e.foo LIKE :str'
-            )
-            ->setParameter('str', '%'.$str.'%')
-            ->getResult();
-    }
-
     public function definirModificador(int $caracteristica): int{
         $modificador = 0;
         switch ($caracteristica){

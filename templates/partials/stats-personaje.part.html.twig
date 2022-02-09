@@ -5,74 +5,79 @@
   <div class="container" data-aos="fade-up">
 
     <div class="row">
-      <div class="col-lg-1 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="100">
-        <div class="stat__box">
+      <div class="col-lg-1 col-md-6 d-flex mt-4 stat__box stat__box__padding" data-aos="zoom-in" data-aos-delay="100">
+        <div class="">
           <h4>STR</h4>
           <div class="stat d20">{{ modFuerza }}</div>
           <p>{{ personaje.fuerza }}</p>
         </div>
       </div>
 
-      <div class="col-lg-1 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="200">
-        <div class="stat__box">
+      <div class="col-lg-1 col-md-6 d-flex mt-4 stat__box stat__box__padding" data-aos="zoom-in" data-aos-delay="200">
+        <div class="">
           <h4>DEX</h4>
           <div class="stat d20">{{ modDestreza }}</div>
           <p>{{ personaje.destreza }}</p>
         </div>
       </div>
 
-      <div class="col-lg-1 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="300">
-        <div class="stat__box">
+      <div class="col-lg-1 col-md-6 d-flex mt-4 stat__box stat__box__padding" data-aos="zoom-in" data-aos-delay="300">
+        <div class="">
           <h4>CON</h4>
           <div class="stat d20">{{ modConstitucion }}</div>
           <p>{{ personaje.constitucion }}</p>
         </div>
       </div>
 
-      <div class="col-lg-1 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="100">
-        <div class="stat__box">
+      <div class="col-lg-1 col-md-6 d-flex mt-4 stat__box stat__box__padding" data-aos="zoom-in" data-aos-delay="100">
+        <div class="">
           <h4>INT</h4>
           <div class="stat d20">{{ modInteligencia }}</div>
           <p>{{ personaje.inteligencia }}</p>
         </div>
       </div>
 
-      <div class="col-lg-1 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="200">
-        <div class="stat__box">
+      <div class="col-lg-1 col-md-6 d-flex mt-4 stat__box stat__box__padding" data-aos="zoom-in" data-aos-delay="200">
+        <div class="">
           <h4>WIS</h4>
           <div class="stat d20">{{ modSabiduria }}</div>
           <p>{{ personaje.sabiduria }}</p>
         </div>
       </div>
 
-      <div class="col-lg-1 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="300">
-        <div class="stat__box">
+      <div class="col-lg-1 col-md-6 d-flex mt-4 stat__box stat__box__padding" data-aos="zoom-in" data-aos-delay="300">
+        <div class="">
           <h4>CHA</h4>
           <div class="stat d20">{{ modCarisma }}</div>
           <p>{{ personaje.carisma }}</p>
         </div>
       </div>
 
-      <div class="col-lg-1 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="300">
-        <div class="stat__box">
+      <div class="col-lg-1 col-md-6 d-flex mt-4 stat__box stat__box__padding" data-aos="zoom-in" data-aos-delay="300">
+        <div class="">
           <h4>Bono</h4>
           <div class="stat d20">{{ modCompetencia }}</div>
           <p>comp</p>
         </div>
       </div>
 
-      <div class="col-lg-1 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="300">
-        <div class="stat__box">
+      <div class="col-lg-1 col-md-6 d-flex mt-4 stat__box stat__box__padding" data-aos="zoom-in" data-aos-delay="300">
+        <div class="">
           <h4>Speed</h4>
           <div>30</div>
           <p>walk</p>
         </div>
       </div>
 
-      <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="300">
-        <div class="stat__box">
+      <div class="col-lg-3 col-md-6 d-flex mt-4 stat__box stat__box__padding" data-aos="zoom-in" data-aos-delay="300">
+        <div class="">
+          <h4>Vida temporal</h4>
+          <div class="stat">{{ ((hitPoints / 2) + 1) * personaje.nivel }}</div>
+          <p>{{ ((hitPoints / 2) + 1) * personaje.nivel }}</p>
+        </div>
+        <div class="">
           <h4>Vida</h4>
-          <div class="stat d20">{{ ((hitPoints / 2) + 1) * personaje.nivel }}</div>
+          <div class="stat">{{ ((hitPoints / 2) + 1) * personaje.nivel }}</div>
           <p>{{ ((hitPoints / 2) + 1) * personaje.nivel }}</p>
         </div>
       </div>

@@ -19,8 +19,8 @@
       <div class="container" data-aos="fade-up">
 
         <div class="row" id="after-header">
-          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content bg-light bg-opacity-50 p-3 rounded" data-aos="fade-right" data-aos-delay="100">
-            <h1>Listado de personajes</h1>
+          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content bg-light bg-opacity-50 p-3 rounded personaje-box" data-aos="fade-right" data-aos-delay="100">
+            <h1 class="mb-4"><strong>Listado de personajes</strong></h1>
             
             {% if personajes %}
 
@@ -33,7 +33,7 @@
                 </div>
 
             {% else %}
-                <p>No se ha encontrado ningun personaje que contenga {{ texto }}</p>
+                <p>No se ha encontrado ningun personaje</p>
             {% endif %}
 
           </div>

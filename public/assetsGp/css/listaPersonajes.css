@@ -37,13 +37,13 @@
 
     .title-accordion-box a {
         background-color: #fff9eeee;
-        color: #ffbb38;
+        color: #343a40;
         padding: 2px 4px;
         border-radius: 3px;
     }
 
     .title-accordion-box a:hover{
-        color: #343a40;
+        color: #ffbb38;
     }
     
     .title-accordion-box > div > ul {
