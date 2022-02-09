@@ -122,7 +122,14 @@
             </div>
             <div class="col text-center">
                 <div class="stat__box" style="overflow: auto;" id="acciones" data-aos="zoom-in" data-aos-delay="100">
-                    {% include "partials/acordeon.part.html.twig" %}
+                    <div id="notaccordion">
+                        {# {% for rasgo in rasgos %}
+                            
+                            {{ include ("partials/datos_personaje.html.twig", {"rasgo": rasgo}) }}
+                            
+                        {% endfor %} #}
+                        {{ include ("partials/acordeon.part.html.twig") }}
+                    </div>
                 </div>
             </div>
         </div>
