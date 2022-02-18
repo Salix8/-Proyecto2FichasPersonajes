@@ -96,17 +96,13 @@ class PersonajeController extends AbstractController
             $formulario->handleRequest($request);
             
             if ($formulario->isSubmitted() && $formulario->isValid()) {
-                $rasgo = json_decode($formulario->get('rasgo')->getData(), false);
-                print_r($rasgo);
-                //print_r($formulario);
-                //$playerData = json_decode($json, false);
-                //$formulario->remove('rasgo');
+                $rasgos = json_decode($formulario->get('rasgo')->getData(), false);
                 $personaje = $formulario->getData();
                 $entityManager = $doctrine->getManager();
                 $personaje->setUser($this->getUser());
                 $entityManager->persist($personaje);
                 $entityManager->flush();
-                $this->rasgos($rasgo, $doctrine, $personaje);
+                $this->rasgos($rasgos, $doctrine, $personaje);
 
                 return $this->redirectToRoute('ficha_personaje', ['codigo' => $personaje->getId()]);
             }
@@ -143,20 +139,21 @@ class PersonajeController extends AbstractController
     /**
      * @Route("/personaje/nuevo/rasgo/{json}", name="nuevo_rasgo_personaje")
      */
-    public function rasgos($json, ManagerRegistry $doctrine, $personaje){
+    public function rasgos($json, ManagerRegistry $doctrine, $personaje){        
         $rasgo = new Rasgo();
         
         $entityManager = $doctrine->getManager();
 
         $repositorio = $doctrine->getRepository(TipoAccion::class);
-        $accion = $repositorio->findOneBy(["tipo" => $json->tipoAccion]);
+        foreach($json as $rasgoJson){
+            $accion = $repositorio->findOneBy(["tipo" => $rasgoJson->tipoAccion]);
+            $rasgo->setPersonaje($personaje);
+            $rasgo->setTipoaccion($accion);
+            $rasgo->setNombre($rasgoJson->titulo);
+            $rasgo->setDescripcion($rasgoJson->descripcion);
 
-        $rasgo->setPersonaje($personaje);
-        $rasgo->setTipoaccion($accion);
-        $rasgo->setNombre($json->titulo);
-        $rasgo->setDescripcion($json->descripcion);
-
-        $entityManager->persist($rasgo);
+            $entityManager->persist($rasgo);
+        }
         $entityManager->flush();
     }
 
@@ -213,12 +210,12 @@ class PersonajeController extends AbstractController
             try {
                 $entityManager->remove($personaje);
                 $entityManager->flush();
-                return new Response("Contacto eliminado");
+                return new Response("Personaje eliminado");
             } catch (\Exception $e ) {
                 return new Response("Error al eliminar el personaje");
             }
         }else {
-            return $this->render("ficha_personaje_Admin.html.twig", [
+            return $this->render("personaje.html.twig", [
                 "personaje" => null
             ]);
         }
@@ -236,14 +233,14 @@ class PersonajeController extends AbstractController
             $personaje->setNombre($nombre);
             try {
                 $entityManager->flush();
-                return $this->render("ficha_personaje_Admin.html.twig", [
+                return $this->render("personaje.html.twig", [
                     "personaje" => $personaje
                 ]);
             } catch (\Exception $e ) {
                 return new Response("Error al insertar los datos del personaje");
             }
         }else {
-            return $this->render("ficha_personaje_Admin.html.twig", [
+            return $this->render("personaje.html.twig", [
                 "personaje" => null
             ]);
         }
@@ -256,7 +253,7 @@ class PersonajeController extends AbstractController
         $repositorio = $doctrine->getRepository(Personaje::class);
         $personaje = $repositorio->find($codigo);
     
-        return $this->render("ficha_personaje_Admin.html.twig", [
+        return $this->render("personaje.html.twig", [
             "personaje" => $personaje, "codigo" => $codigo
         ]);
     }

@@ -4,27 +4,37 @@ $(document).ready(function(){
         event.preventDefault();
         $(`#personaje_rasgo`).val(createJSON());
         $(`form`).submit();
+
     })
 
     function createJSON() {
 
-        let dataToUpload = {
-            tipoAccion: $(`.select-tipoAccion`).val(),
-            titulo: $(`.input`).val(),
-            descripcion: $(`.textarea`).val()
-        }
+        let contenedor = $(`#contenedor-rasgo`);
+        let rasgos = contenedor.find(`.box-rasgo`);
 
-        localStorage.setItem(`datos`, JSON.stringify(dataToUpload));
+        let dataToUpload = [];
+
+        rasgos.each(function( index ) {
+            let dataToUploadRasgo = {
+                tipoAccion: $( this ).find(`.select-tipoAccion`).val(),
+                titulo:  $( this ).find(`.input`).val(),
+                descripcion:  $( this ).find(`.textarea`).val()
+            }
+            console.log(dataToUploadRasgo);
+            dataToUpload.push(dataToUploadRasgo);
+        });
+
+       localStorage.setItem(`datos`, JSON.stringify(dataToUpload));
         return JSON.stringify(dataToUpload);
         
-        $.ajax({
+        /* $.ajax({
             type: `GET`,
             url: `/personaje/nuevo/rasgo/`  + JSON.stringify(dataToUpload)
         })
         .done((data)=>{
             alert(`Los datos se han enviado correctamente`);
             return
-        });
+        }); */
         
     }
 });

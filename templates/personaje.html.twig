@@ -6,32 +6,48 @@
     <!-- Favicons -->
     <link href="/assetsGp/img/ico/mascara2.ico" rel="icon">
     <link href="/assetsGp/img/ico/mascara2.ico" rel="apple-touch-icon">
+      <style>
+        ul{
+          list-style: none;
+        }
+      </style>
 {% endblock %}
 {% block javascripts %}
-    <script type="text/javascript">
-        $('#autoText').autocompleter({url_list: '/auto_search', url_get: '/auto_get/'});
-    </script>
-{% endblock %}
+  <script>
+  $( function() {
+    var availableTags = [
+      "Galathar",
+      "Asmund",
+      "Phill",
+      "Bella",
+      "Kirito",
+      "C++",
+      "Clojure",
+      "COBOL",
+      "ColdFusion",
+      "Erlang",
+      "Fortran",
+      "Groovy",
+      "Haskell",
+      "Java",
+      "JavaScript",
+      "Lisp",
+      "Perl",
+      "PHP",
+      "Python",
+      "Ruby",
+      "Scala",
+      "Scheme"
+    ];
+    $( "#tags" ).autocomplete({
+      source: availableTags
+    });
+  } );
+  </script>
+  {% endblock %}
 {% block body %}
 
-<style>
-#autoCompletedList {
-  color: hsl(0, 0%, 0%);
-  padding: 0;
-  margin: 0;
-  list-style-type: none;
-}
-#autoCompletedList li {
-  background: #424242;
-  padding: 5px;
-  color: hsl(0, 0%, 100%);
-  border-bottom: dotted 1px hsl(0, 0%, 58%);
-}
-#autoCompletedList li:hover {
-  background: hsl(0, 0%, 36%);
-  cursor: pointer;
-}
-</style>
+
 
 
     <!-- ======= Accordion Section ======= -->
@@ -40,21 +56,12 @@
 
         <div class="row" id="after-header">
           <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content bg-light bg-opacity-50 p-3 rounded personaje-box" data-aos="fade-right" data-aos-delay="100">
-            <h1 class="mb-4"><strong>Listado de personajes</strong></h1>
+            <h1 class="mb-4"><strong>Listado de personajes: </strong></h1>
             
-            {% if personajes is defined%}
-
-                <div id="notaccordion">
-                {% for personaje in personajes %}
-                    
-                    {{ include ("partials/datos_personaje.html.twig", {"personaje": personaje}) }}
-                    
-                {% endfor %}
-                </div>
-
-            {% else %}
-                <p>No se ha encontrado ningun personaje que contenga {{ codigo }} <p>
-            {% endif %}
+            <div class="ui-widget">
+              <label for="tags">Buscar personaje </label>
+              <input id="tags">
+            </div>
 
           </div>
           <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">

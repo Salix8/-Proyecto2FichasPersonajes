@@ -29,8 +29,8 @@ class PersonajeType extends AbstractType
             ->add('inteligencia', NumberType::class)
             ->add('sabiduria', NumberType::class)
             ->add('carisma', NumberType::class)
-            ->add('descripcion', TextareaType::class)
-            ->add('equipamiento', TextareaType::class)
+            ->add('descripcion', TextareaType::class, array('required' => false))
+            ->add('equipamiento', TextareaType::class, array('required' => false))
             ->add('rasgo', HiddenType::class, array('mapped' => false))
             ->add('save', SubmitType::class);
     }
