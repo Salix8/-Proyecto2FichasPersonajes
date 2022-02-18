@@ -13,38 +13,8 @@
       </style>
 {% endblock %}
 {% block javascripts %}
-  <script>
-  $( function() {
-    var availableTags = [
-      "Galathar",
-      "Asmund",
-      "Phill",
-      "Bella",
-      "Kirito",
-      "C++",
-      "Clojure",
-      "COBOL",
-      "ColdFusion",
-      "Erlang",
-      "Fortran",
-      "Groovy",
-      "Haskell",
-      "Java",
-      "JavaScript",
-      "Lisp",
-      "Perl",
-      "PHP",
-      "Python",
-      "Ruby",
-      "Scala",
-      "Scheme"
-    ];
-    $( "#tags" ).autocomplete({
-      source: availableTags
-    });
-  } );
-  </script>
-  {% endblock %}
+  <script src="/assetsGp/js/autocompletado.js"></script>
+{% endblock %}
 {% block body %}
 
 
