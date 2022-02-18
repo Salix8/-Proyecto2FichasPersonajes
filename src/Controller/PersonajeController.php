@@ -84,23 +84,35 @@ class PersonajeController extends AbstractController
      */
     public function nuevo(ManagerRegistry $doctrine, Request $request): Response {
 
-        $personaje = new Personaje();
+        if ($this->denyAccessUnlessGranted('ROLE_USER') === false) {
+            return $this->redirectToRoute('login');
+        }else {
+            
+            $personaje = new Personaje();
 
-        $formulario = $this->createForm(PersonajeType::class, $personaje);
+            $formulario = $this->createForm(PersonajeType::class, $personaje);
+            
+            
+            $formulario->handleRequest($request);
+            
+            if ($formulario->isSubmitted() && $formulario->isValid()) {
+                $rasgo = json_decode($formulario->get('rasgo')->getData(), false);
+                print_r($rasgo);
+                //print_r($formulario);
+                //$playerData = json_decode($json, false);
+                //$formulario->remove('rasgo');
+                $personaje = $formulario->getData();
+                $entityManager = $doctrine->getManager();
+                $personaje->setUser($this->getUser());
+                $entityManager->persist($personaje);
+                $entityManager->flush();
+                $this->rasgos($rasgo, $doctrine, $personaje);
 
-        $formulario->handleRequest($request);
-
-        if ($formulario->isSubmitted() && $formulario->isValid()) {
-            $personaje = $formulario->getData();
-            $entityManager = $doctrine->getManager();
-            $personaje->setUser($this->getUser());
-            $this->test($personaje);
-            $entityManager->persist($personaje);
-            $entityManager->flush();
-            return $this->redirectToRoute('ficha_personaje', ['codigo' => $personaje->getId()]);
+                return $this->redirectToRoute('ficha_personaje', ['codigo' => $personaje->getId()]);
+            }
+            
+            return $this->render("nuevo.html.twig", array('formulario' => $formulario->createView()));
         }
-
-        return $this->render("nuevo.html.twig", array('formulario' => $formulario->createView()));
     }
 
     /**
@@ -128,17 +140,24 @@ class PersonajeController extends AbstractController
         }
     }
 
-    public function test($player){
-        $json = file_get_contents('php://input');
-        $playerData = json_decode($json, false);
+    /**
+     * @Route("/personaje/nuevo/rasgo/{json}", name="nuevo_rasgo_personaje")
+     */
+    public function rasgos($json, ManagerRegistry $doctrine, $personaje){
+        $rasgo = new Rasgo();
+        
+        $entityManager = $doctrine->getManager();
 
-        var_dump($playerData);
+        $repositorio = $doctrine->getRepository(TipoAccion::class);
+        $accion = $repositorio->findOneBy(["tipo" => $json->tipoAccion]);
 
-        $player->setTipoaccion($playerData->tipoAccion);
-        $player->setNombre($playerData->titulo);
-        $player->setDescripcion($playerData->descripcion);
+        $rasgo->setPersonaje($personaje);
+        $rasgo->setTipoaccion($accion);
+        $rasgo->setNombre($json->titulo);
+        $rasgo->setDescripcion($json->descripcion);
 
-        $player->insertPlayer($this->doc);
+        $entityManager->persist($rasgo);
+        $entityManager->flush();
     }
 
     /**
@@ -159,8 +178,6 @@ class PersonajeController extends AbstractController
     public function ficha(ManagerRegistry $doctrine, $codigo): Response {
         $entityManager = $doctrine->getManager();
         $repositorio = $doctrine->getRepository(Personaje::class);
-        
-        /* $personaje = ($this->personajes[$codigo] ?? null); */
 
         $personaje = $repositorio->find($codigo);
         
@@ -180,7 +197,7 @@ class PersonajeController extends AbstractController
         "modFuerza" => $modFuerza, "modDestreza" => $modDestreza,
         "modConstitucion" => $modConstitucion, "modInteligencia" => $modInteligencia,
         "modSabiduria" => $modSabiduria, "modCarisma" => $modCarisma,
-        "modCompetencia" => $modCompetencia, "hitPoints" => $hitPoints
+        "modCompetencia" => $modCompetencia, "hitPoints" => $hitPoints,
         ]);
     }
 

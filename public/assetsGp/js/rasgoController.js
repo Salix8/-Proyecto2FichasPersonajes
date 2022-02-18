@@ -2,7 +2,7 @@ $(document).ready(function(){
 
     $(`#personaje_save`).on(`click`, (event)=>{
         event.preventDefault();
-        createJSON();
+        $(`#personaje_rasgo`).val(createJSON());
         $(`form`).submit();
     })
 
@@ -15,14 +15,15 @@ $(document).ready(function(){
         }
 
         localStorage.setItem(`datos`, JSON.stringify(dataToUpload));
-
+        return JSON.stringify(dataToUpload);
+        
         $.ajax({
-            type: `POST`,
-            url: ``,
-            data: JSON.stringify(dataToUpload)
+            type: `GET`,
+            url: `/personaje/nuevo/rasgo/`  + JSON.stringify(dataToUpload)
         })
-        .done(()=>{
+        .done((data)=>{
             alert(`Los datos se han enviado correctamente`);
+            return
         });
         
     }

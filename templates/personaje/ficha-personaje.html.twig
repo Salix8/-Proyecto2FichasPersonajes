@@ -2,13 +2,20 @@
 {% block title %}Personaje{% endblock %}
 {% block stylesheets %}
     <link href="{{ asset('/assetsGp/css/FichaPersonaje.css') }}" rel="stylesheet" />
+    <link href="{{ asset('/assetsGp/css/accordion.css') }}" rel="stylesheet" />
 
     <!-- Favicons -->
     <link href="/assetsGp/img/ico/casco.ico" rel="icon">
     <link href="/assetsGp/img/ico/casco.ico" rel="apple-touch-icon">
+    <style>
+        .title-accordion:hover{
+           color: #343a40; 
+        }
+    </style>
 {% endblock %}
 {% block javascripts %}
     <script src="/assetsGp/js/d20.js"></script>
+    <script src="/assetsGp/js/accordion.js"></script>
 {% endblock %}
 {% block body %}
 
@@ -123,12 +130,11 @@
             <div class="col text-center">
                 <div class="stat__box" style="overflow: auto;" id="acciones" data-aos="zoom-in" data-aos-delay="100">
                     <div id="notaccordion">
-                        {# {% for rasgo in rasgos %}
+                        {% for rasgo in personaje.rasgo %}
                             
-                            {{ include ("partials/datos_personaje.html.twig", {"rasgo": rasgo}) }}
+                            {{ include ("partials/acordeon.part.html.twig", {"rasgo": rasgo}) }}
                             
-                        {% endfor %} #}
-                        {{ include ("partials/acordeon.part.html.twig") }}
+                        {% endfor %}
                     </div>
                 </div>
             </div>

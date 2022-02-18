@@ -14,7 +14,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Personaje
 {
 
-    const clases = ['Artificiero', 'Bárbaro', 'Bardo', 'Clérigo', 'Druida', 'Monje', 'Místico', 'Paladín', 'Explorador', 'Pícaro', 'Hechicero', 'Brujo', 'Mago' ];
+    const clases = ['Artificiero', 'Bárbaro', 'Bardo', 'Clérigo', 'Druida', 'Guerrero', 'Monje', 'Místico', 'Paladín', 'Explorador', 'Pícaro', 'Hechicero', 'Brujo', 'Mago' ];
 
     /**
      * @ORM\Id

@@ -26,7 +26,7 @@ $(document).ready(function(){
                     <select class="select-tipoAccion" name="tipo-de-habilidad">
                       <option value="accion">Acción</option>
                       <option value="accionAdicional">Acción adicional</option>
-                      <option value="reacción">Redacción</option>
+                      <option value="reacción">Reacción</option>
                       <option value="otro">Otro</option>
                     </select>
                   </span>
